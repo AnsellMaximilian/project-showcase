@@ -1,14 +1,18 @@
 const title = document.getElementById("title");
 
-// Finished Image
-const finishedImageSection = document.getElementById("finished-image");
-const finishedImage = finishedImageSection.querySelector("img");
+// Preview Section
+const previewSection = document.getElementById("preview");
+const previewImage = previewSection.querySelector("img");
+const previewDescription = previewSection.querySelector("h2");
+const previewSummary = previewSection.querySelector("p");
 
 // Ingredients Section
 const ingredientsSection = document.getElementById("ingredients");
+const ingredientList = ingredientsSection.querySelector("ul");
 
 // Steps Section
 const stepsSection = document.getElementById("steps");
+const stepsListContainer = stepsSection.querySelector("#steps-list-container");
 
 const getRecipe = async () => {
   try {
@@ -32,10 +36,20 @@ const displayRandomRecipe = async () => {
     instructions,
     extendedIngredients,
     title: recipeTitle,
+    summary,
   } = await getRecipe();
   title.innerText = recipeTitle;
-  finishedImage.src = image;
-  finishedImage.alt = recipeTitle;
+  previewImage.src = image;
+  previewImage.alt = recipeTitle;
+  previewDescription.innerText = "Finished" + recipeTitle;
+  previewSummary.innerHTML = summary;
+  stepsListContainer.innerHTML = instructions;
+  extendedIngredients.forEach((ingredient) => {
+    const { name } = ingredient;
+    const ingredientListItem = document.createElement("li");
+    ingredientListItem.innerText = name;
+    ingredientList.appendChild(ingredientListItem);
+  });
 };
 
 displayRandomRecipe();
