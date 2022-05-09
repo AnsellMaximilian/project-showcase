@@ -13,7 +13,7 @@ const getRecipe = async () => {
       "https://api.spoonacular.com/recipes/random?apiKey=1fbea3a03746450ba412eafa8dd62ab6"
     );
 
-    console.log(recipe);
+    return recipe;
   } catch (error) {
     console.log(error);
   }
