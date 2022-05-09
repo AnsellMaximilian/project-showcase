@@ -19,4 +19,9 @@ const getRecipe = async () => {
   }
 };
 
-getRecipe();
+const displayRandomRecipe = async () => {
+  const { image, instructions, extendedIngredients } = await getRecipe();
+  console.log({ image, instructions, extendedIngredients });
+};
+
+displayRandomRecipe();
