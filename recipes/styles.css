@@ -70,6 +70,8 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
+  align-items: center;
+  gap: 1rem;
 }
 
 #preview img {
@@ -100,4 +102,23 @@ section ul li {
 ol {
   list-style-type: decimal;
   list-style-position: inside;
+}
+
+#random-button svg {
+  display: inline;
+  width: 1.25rem;
+}
+
+#random-button span {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  #random-button svg {
+    display: none;
+  }
+
+  #random-button span {
+    display: inline;
+  }
 }
