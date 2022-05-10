@@ -45,9 +45,9 @@ const displayRandomRecipe = async () => {
   previewSummary.innerHTML = summary;
   stepsListContainer.innerHTML = instructions;
   extendedIngredients.forEach((ingredient) => {
-    const { name } = ingredient;
+    const { name, amount, unit } = ingredient;
     const ingredientListItem = document.createElement("li");
-    ingredientListItem.innerText = name;
+    ingredientListItem.innerText = name + " (" + amount + " " + unit + ")";
     ingredientList.appendChild(ingredientListItem);
   });
 };
