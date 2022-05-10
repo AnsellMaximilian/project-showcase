@@ -25,7 +25,8 @@ section {
   margin-bottom: 3rem;
 }
 
-#preview p {
+p,
+li {
   padding: 0 2rem;
   line-height: 1.25rem;
 }
@@ -91,6 +92,8 @@ section ol {
 section li {
   border-bottom: var(--primary) solid 0.15rem;
   padding: 0.5rem 0;
+}
+section ul li {
   text-transform: uppercase;
 }
 
