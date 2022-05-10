@@ -41,7 +41,7 @@ const displayRandomRecipe = async () => {
   title.innerText = recipeTitle;
   previewImage.src = image;
   previewImage.alt = recipeTitle;
-  previewDescription.innerText = "Finished - " + recipeTitle;
+  // previewDescription.innerText = "Finished - " + recipeTitle;
   previewSummary.innerHTML = summary;
   stepsListContainer.innerHTML = instructions;
   extendedIngredients.forEach((ingredient) => {
