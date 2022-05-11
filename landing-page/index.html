@@ -10,29 +10,31 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <header class="text-xl">
-      <nav>
-        <div>Header Logo</div>
-        <ul>
+    <header class="bg-gray-800 text-white p-4">
+      <nav class="flex justify-between">
+        <div class="text-3xl font-bold"><a href="#">RobCo</a></div>
+        <ul class="text-gray-400 text-lg flex gap-4">
           <li>Header One</li>
           <li>Header Two</li>
           <li>Header Three</li>
         </ul>
       </nav>
     </header>
-    <section>
+    <section
+      class="bg-gray-800 text-white px-4 py-8 flex items-center justify-between"
+    >
       <div>
-        <h1>This Website Is Awesome</h1>
-        <p>
-          This website has some subtext that goes here under the main title.
-          It's a smaller font and the color is lower contrast
+        <h1 class="text-5xl font-bold mb-2">RobCo Industries</h1>
+        <p class="text-lg text-gray-300 mb-2">
+          Your best and only choice for robotics and software.
         </p>
-        <button>Sign Up</button>
+        <button class="bg-blue-500 px-4 py-1 rounded">Sign Up</button>
       </div>
       <div>
         <img
-          src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZHVjdHxlbnwwfDB8MHx8&auto=format&fit=crop&w=600&q=60"
+          src="images/securitron.png"
           alt="potted pland"
+          class="w-[40rem] h-[25rem] object-cover rounded-lg"
         />
       </div>
     </section>
