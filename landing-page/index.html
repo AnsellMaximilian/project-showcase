@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,13 +13,23 @@
       <nav class="flex justify-between">
         <div class="text-3xl font-bold"><a href="#">RobCo</a></div>
         <ul class="text-gray-400 text-lg flex gap-4">
-          <li>Header One</li>
-          <li>Header Two</li>
-          <li>Header Three</li>
+          <li>
+            <a class="hover:text-white" href="#hero">About</a>
+          </li>
+          <li>
+            <a class="hover:text-white" href="#more">More Info</a>
+          </li>
+          <li>
+            <a class="hover:text-white" href="#quote">Quote</a>
+          </li>
+          <li>
+            <a class="hover:text-white" href="#cta">CTA</a>
+          </li>
         </ul>
       </nav>
     </header>
     <section
+      id="hero"
       class="bg-gray-800 text-white px-4 py-8 flex items-center justify-between"
     >
       <div>
@@ -27,7 +37,7 @@
         <p class="text-lg text-gray-300 mb-2">
           Your best and only choice for robotics and software.
         </p>
-        <button class="bg-blue-500 px-4 py-1 rounded">Sign Up</button>
+        <a class="bg-blue-500 px-4 py-1 rounded" href="#">Sign Up</a>
       </div>
       <div>
         <img
@@ -37,7 +47,7 @@
         />
       </div>
     </section>
-    <section class="px-4 py-24">
+    <section class="px-4 py-24" id="more">
       <h2 class="text-4xl font-bold text-center mb-8">Why RobCo</h2>
       <div class="flex justify-center gap-8 md:gap-16 flex-wrap">
         <div class="w-48 md:w-64">
@@ -89,14 +99,14 @@
         </div>
       </div>
     </section>
-    <section class="py-32 px-4 bg-gray-200">
+    <section class="py-32 px-4 bg-gray-200" id="quote">
       <blockquote class="text-4xl text-center italic text-gray-600 mb-4">
         Success depends on forethought, dispassionate calculation of
         probabilities, accounting for every stray variable.
       </blockquote>
       <div class="font-semibold text-2xl text-right">-Robert Edwin House</div>
     </section>
-    <section class="py-24 px-4">
+    <section class="py-24 px-4" id="cta">
       <div
         class="px-24 py-8 bg-blue-500 text-white rounded-lg flex justify-between items-center"
       >
