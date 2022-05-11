@@ -30,20 +30,20 @@
     </header>
     <section
       id="hero"
-      class="bg-gray-800 text-white px-4 py-8 flex items-center justify-between"
+      class="bg-gray-800 text-white px-4 py-24 flex items-center justify-center md:justify-between gap-4"
     >
-      <div>
+      <div class="text-center md:text-left">
         <h1 class="text-5xl font-bold mb-2">RobCo Industries</h1>
         <p class="text-lg text-gray-300 mb-2">
           Your best and only choice for robotics and software.
         </p>
         <a class="bg-blue-500 px-4 py-1 rounded" href="#">Sign Up</a>
       </div>
-      <div>
+      <div class="hidden md:block">
         <img
           src="images/mr-house.png"
           alt="potted pland"
-          class="w-[40rem] h-[25rem] object-cover rounded-lg"
+          class="w-[40rem] h-[20rem] object-cover rounded-lg"
         />
       </div>
     </section>
@@ -100,17 +100,21 @@
       </div>
     </section>
     <section class="py-32 px-4 bg-gray-200" id="quote">
-      <blockquote class="text-4xl text-center italic text-gray-600 mb-4">
+      <blockquote
+        class="text-3xl md:text-4xl text-center italic text-gray-600 mb-4"
+      >
         Success depends on forethought, dispassionate calculation of
         probabilities, accounting for every stray variable.
       </blockquote>
-      <div class="font-semibold text-2xl text-right">-Robert Edwin House</div>
+      <div class="font-semibold text-xl md:text-2xl text-right">
+        -Robert Edwin House
+      </div>
     </section>
     <section class="py-24 px-4" id="cta">
       <div
-        class="px-24 py-8 bg-blue-500 text-white rounded-lg flex justify-between items-center"
+        class="px-16 md:px-24 py-8 bg-blue-500 text-white rounded-lg flex flex-col md:flex-row justify-between items-center"
       >
-        <div>
+        <div class="mb-4 md:mb-0 text-center md:text-left">
           <h2 class="text-xl font-semibold">Join our family now!</h2>
           <p>Utilize the full power of RobCo technologies!</p>
         </div>
