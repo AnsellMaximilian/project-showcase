@@ -44,7 +44,7 @@ btnScissors.addEventListener("click", () => onChoiceBtnClick(SCISSORS));
 
 const getRandomChoice = () => choicesArray[Math.floor(Math.random() * 3)];
 
-const computerPlay = () => getRandomChoice();
+const getComputerChoice = () => getRandomChoice();
 
 const validateChoice = (choice) => choicesArray.includes(choice);
 
@@ -62,7 +62,7 @@ const playRound = (playerSelection, computerSelection) => {
 //   let computerScore = 0;
 //   for (let i = 0; i < 5; i++) {
 //     const playerChoice = getPlayerChoice();
-//     const computerChoice = computerPlay();
+//     const computerChoice = getComputerChoice();
 //     console.log(playRound(playerChoice, computerChoice));
 //     const result = beatTable[playerChoice][computerChoice];
 //     if (result !== null) result ? playerScore++ : computerScore++;
