@@ -61,13 +61,15 @@ const playRound = (playerSelection, computerSelection) => {
   const isDraw = isPlayerWinner === null;
 
   if (isDraw) {
-    announcement.textContent = `Draw!`;
+    updateAnnouncement(`Draw!`);
   } else {
     isPlayerWinner ? playerScore++ : computerScore++;
 
-    announcement.textContent = `You ${isPlayerWinner ? "Win" : "Lose"}! ${
-      isPlayerWinner ? playerSelection : computerSelection
-    } beats ${isPlayerWinner ? computerSelection : playerSelection}`;
+    updateAnnouncement(
+      `You ${isPlayerWinner ? "Win" : "Lose"}! ${
+        isPlayerWinner ? playerSelection : computerSelection
+      } beats ${isPlayerWinner ? computerSelection : playerSelection}`
+    );
   }
   updateScoreboard();
   checkWin();
@@ -78,11 +80,13 @@ const updateScoreboard = () => {
   computerScoreDisplay.textContent = computerScore;
 };
 
+const updateAnnouncement = (text) => (announcement.textContent = text);
+
 const checkWin = () => {
   if (playerScore === 5) {
-    announcement.textContent = "YOU WON THE GAME!";
+    updateAnnouncement("YOU WON THE GAME!");
   } else if (computerScore === 5) {
-    announcement.textContent = "YOU LOST!";
+    updateAnnouncement("YOU LOST!");
   }
 };
 
