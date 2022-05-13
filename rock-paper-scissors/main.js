@@ -59,23 +59,23 @@ const playRound = (playerSelection, computerSelection) => {
   } beats ${isPlayerWinner ? computerSelection : playerSelection}`;
 };
 
-const game = () => {
-  let playerScore = 0;
-  let computerScore = 0;
-  for (let i = 0; i < 5; i++) {
-    const playerChoice = getPlayerChoice();
-    const computerChoice = computerPlay();
-    console.log(playRound(playerChoice, computerChoice));
-    const result = beatTable[playerChoice][computerChoice];
-    if (result !== null) result ? playerScore++ : computerScore++;
-  }
-  if (playerScore > computerScore) {
-    console.log("Congrats! You win!");
-  } else if (playerScore < computerScore) {
-    console.log("Unfortunately... you lost.");
-  } else {
-    console.log("It's a draw!");
-  }
-};
+// const game = () => {
+//   let playerScore = 0;
+//   let computerScore = 0;
+//   for (let i = 0; i < 5; i++) {
+//     const playerChoice = getPlayerChoice();
+//     const computerChoice = computerPlay();
+//     console.log(playRound(playerChoice, computerChoice));
+//     const result = beatTable[playerChoice][computerChoice];
+//     if (result !== null) result ? playerScore++ : computerScore++;
+//   }
+//   if (playerScore > computerScore) {
+//     console.log("Congrats! You win!");
+//   } else if (playerScore < computerScore) {
+//     console.log("Unfortunately... you lost.");
+//   } else {
+//     console.log("It's a draw!");
+//   }
+// };
 
-game();
+// game();
