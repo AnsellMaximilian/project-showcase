@@ -27,28 +27,26 @@ const beatTable = {
 
 const choicesArray = [ROCK, PAPER, SCISSORS];
 
-const getRandomChoice = () =>
-  choicesArray[Math.floor(Math.random(choicesArray.length))];
+// DOM
+const btnRock = document.querySelector("#btn-rock");
+const btnPaper = document.querySelector("#btn-paper");
+const btnScissors = document.querySelector("#btn-scissors");
+
+const onChoiceBtnClick = (choice) => {
+  const computerChoice = getRandomChoice();
+  const res = playRound(choice, computerChoice);
+  console.log(res);
+};
+
+btnRock.addEventListener("click", () => onChoiceBtnClick(ROCK));
+btnPaper.addEventListener("click", () => onChoiceBtnClick(PAPER));
+btnScissors.addEventListener("click", () => onChoiceBtnClick(SCISSORS));
+
+const getRandomChoice = () => choicesArray[Math.floor(Math.random() * 3)];
 
 const computerPlay = () => getRandomChoice();
 
 const validateChoice = (choice) => choicesArray.includes(choice);
-
-const getPlayerChoice = () => {
-  let isChoiceValid = false;
-  let playerChoice = null;
-  let isBadInput = false;
-  while (!isChoiceValid) {
-    playerChoice = prompt(
-      isBadInput
-        ? "BAD INPUT! Try again (rock, paper, or scissors)!"
-        : "Type rock, paper, or scissors."
-    ).toUpperCase();
-    isChoiceValid = validateChoice(playerChoice);
-    isBadInput = !isChoiceValid;
-  }
-  return playerChoice;
-};
 
 const playRound = (playerSelection, computerSelection) => {
   const isPlayerWinner = beatTable[playerSelection][computerSelection];
@@ -79,3 +77,19 @@ const playRound = (playerSelection, computerSelection) => {
 // };
 
 // game();
+
+// const getPlayerChoice = () => {
+//   let isChoiceValid = false;
+//   let playerChoice = null;
+//   let isBadInput = false;
+//   while (!isChoiceValid) {
+//     playerChoice = prompt(
+//       isBadInput
+//         ? "BAD INPUT! Try again (rock, paper, or scissors)!"
+//         : "Type rock, paper, or scissors."
+//     ).toUpperCase();
+//     isChoiceValid = validateChoice(playerChoice);
+//     isBadInput = !isChoiceValid;
+//   }
+//   return playerChoice;
+// };
