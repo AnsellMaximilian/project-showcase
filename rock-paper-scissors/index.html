@@ -22,7 +22,7 @@
       </div>
       <div class="text-center text-4xl font-bold">
         <div id="announcement">Choose Rock, Paper, or Scissors</div>
-        <div id="reset-prompt">
+        <div id="reset-prompt" style="display: none">
           Play Again?
           <button class="text-4xl text-blue-600 font-semibold hover:underline">
             Yes
@@ -32,7 +32,7 @@
       <div class="flex justify-center gap-8">
         <button
           id="btn-rock"
-          class="play-btn rounded-lg shadow-lg bg-blue-600 text-white p-4 hover:scale-110 active:scale-90 transition-all duration-75"
+          class="play-btn rounded-lg shadow-lg bg-blue-600 text-white p-4 hover:scale-110 active:scale-90 transition-all duration-75 disabled:hover:scale-100 disabled:active:scale-100 disabled:brightness-75"
         >
           <img
             src="images/rock.png"
@@ -42,7 +42,7 @@
         </button>
         <button
           id="btn-paper"
-          class="play-btn rounded-lg shadow-lg bg-blue-600 text-white p-4 hover:scale-110 active:scale-90 transition-all duration-75"
+          class="play-btn rounded-lg shadow-lg bg-blue-600 text-white p-4 hover:scale-110 active:scale-90 transition-all duration-75 disabled:hover:scale-100 disabled:active:scale-100 disabled:brightness-75"
         >
           <img
             src="images/paper.png"
@@ -52,7 +52,7 @@
         </button>
         <button
           id="btn-scissors"
-          class="play-btn rounded-lg shadow-lg bg-blue-600 text-white p-4 hover:scale-110 active:scale-90 transition-all duration-75"
+          class="play-btn rounded-lg shadow-lg bg-blue-600 text-white p-4 hover:scale-110 active:scale-90 transition-all duration-75 disabled:hover:scale-100 disabled:active:scale-100 disabled:brightness-75"
         >
           <img
             src="images/scissors.png"

@@ -42,12 +42,16 @@ const computerScoreDisplay = document.querySelector(
 );
 
 const announcement = document.querySelector("#announcement");
+const resetPrompt = document.querySelector("#reset-prompt");
+const resetButton = resetPrompt.querySelector("button");
 
 btnRock.addEventListener("click", () => playRound(ROCK, getComputerChoice()));
 btnPaper.addEventListener("click", () => playRound(PAPER, getComputerChoice()));
 btnScissors.addEventListener("click", () =>
   playRound(SCISSORS, getComputerChoice())
 );
+
+resetButton.addEventListener("click", () => resetGame());
 
 const getRandomChoice = () => choicesArray[Math.floor(Math.random() * 3)];
 
@@ -82,12 +86,40 @@ const updateScoreboard = () => {
 
 const updateAnnouncement = (text) => (announcement.textContent = text);
 
+const displayResetPrompt = () => (resetPrompt.style.display = "block");
+const hideResetPrompt = () => (resetPrompt.style.display = "none");
+
+const resetGame = () => {
+  playerScore = 0;
+  computerScore = 0;
+  updateAnnouncement("Game Reset! Choose Rock, Paper, or Scissors");
+  updateScoreboard();
+  hideResetPrompt();
+  enableButtons();
+};
+
+const disableButtons = () => {
+  btnRock.disabled = true;
+  btnPaper.disabled = true;
+  btnScissors.disabled = true;
+};
+
+const enableButtons = () => {
+  btnRock.disabled = false;
+  btnPaper.disabled = false;
+  btnScissors.disabled = false;
+};
+
 const checkWin = () => {
   if (playerScore === 5) {
     updateAnnouncement("YOU WON THE GAME!");
   } else if (computerScore === 5) {
     updateAnnouncement("YOU LOST!");
+  } else {
+    return;
   }
+  displayResetPrompt();
+  disableButtons();
 };
 
 updateScoreboard();
