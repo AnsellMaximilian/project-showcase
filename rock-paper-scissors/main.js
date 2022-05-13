@@ -27,20 +27,27 @@ const beatTable = {
 
 const choicesArray = [ROCK, PAPER, SCISSORS];
 
+// SCORE VARIABLES
+let playerScore = 0;
+let computerScore = 0;
+
 // DOM
 const btnRock = document.querySelector("#btn-rock");
 const btnPaper = document.querySelector("#btn-paper");
 const btnScissors = document.querySelector("#btn-scissors");
 
-const onChoiceBtnClick = (choice) => {
-  const computerChoice = getRandomChoice();
-  const res = playRound(choice, computerChoice);
-  console.log(res);
-};
+const playerScoreDisplay = document.querySelector("#scoreboard_player_score");
+const computerScoreDisplay = document.querySelector(
+  "#scoreboard_computer_score"
+);
 
-btnRock.addEventListener("click", () => onChoiceBtnClick(ROCK));
-btnPaper.addEventListener("click", () => onChoiceBtnClick(PAPER));
-btnScissors.addEventListener("click", () => onChoiceBtnClick(SCISSORS));
+const announcement = document.querySelector("#announcement");
+
+btnRock.addEventListener("click", () => playRound(ROCK, getComputerChoice()));
+btnPaper.addEventListener("click", () => playRound(PAPER, getComputerChoice()));
+btnScissors.addEventListener("click", () =>
+  playRound(SCISSORS, getComputerChoice())
+);
 
 const getRandomChoice = () => choicesArray[Math.floor(Math.random() * 3)];
 
@@ -50,9 +57,33 @@ const validateChoice = (choice) => choicesArray.includes(choice);
 
 const playRound = (playerSelection, computerSelection) => {
   const isPlayerWinner = beatTable[playerSelection][computerSelection];
+
   const isDraw = isPlayerWinner === null;
-  if (isDraw) return `Draw!`;
-  return `You ${isPlayerWinner ? "Win" : "Lose"}! ${
-    isPlayerWinner ? playerSelection : computerSelection
-  } beats ${isPlayerWinner ? computerSelection : playerSelection}`;
+
+  if (isDraw) {
+    announcement.textContent = `Draw!`;
+  } else {
+    isPlayerWinner ? playerScore++ : computerScore++;
+
+    announcement.textContent = `You ${isPlayerWinner ? "Win" : "Lose"}! ${
+      isPlayerWinner ? playerSelection : computerSelection
+    } beats ${isPlayerWinner ? computerSelection : playerSelection}`;
+  }
+  updateScoreboard();
+  checkWin();
 };
+
+const updateScoreboard = () => {
+  playerScoreDisplay.textContent = playerScore;
+  computerScoreDisplay.textContent = computerScore;
+};
+
+const checkWin = () => {
+  if (playerScore === 5) {
+    announcement.textContent = "YOU WON THE GAME!";
+  } else if (computerScore === 5) {
+    announcement.textContent = "YOU LOST!";
+  }
+};
+
+updateScoreboard();
