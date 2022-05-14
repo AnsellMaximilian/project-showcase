@@ -76,6 +76,16 @@ button:hover {
   gap: 0.25rem;
 }
 
+#reset-btn {
+  background-color: rgb(211, 30, 30);
+  color: white;
+}
+
+#grid-size-prompt button {
+  background-color: rgb(25, 108, 204);
+  color: white;
+}
+
 @keyframes rainbow {
   from {
     background-color: red;
