@@ -44,6 +44,7 @@ button:hover {
 .random-color-btn--on {
   background-color: transparent;
   animation: rainbow 2s infinite;
+  color: white;
 }
 
 @keyframes rainbow {
