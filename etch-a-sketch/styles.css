@@ -14,10 +14,15 @@
   width: var(--grid-size);
   height: var(--grid-size);
   border: black 0.5rem solid;
+  box-sizing: content-box;
 }
 
 .tile {
   width: calc(var(--grid-size) / var(--grid-dimensions));
   height: calc(var(--grid-size) / var(--grid-dimensions));
   /* background-color: red; */
+}
+
+.tile--painted {
+  background-color: black;
 }
