@@ -9,7 +9,7 @@ const gridSizeInput = document.querySelector("#grid-size-input");
 gridSizeUpdateBtn.addEventListener("click", () => {
   const newSize = parseInt(gridSizeInput.value);
   if (isNaN(newSize)) {
-  } else if (newSize > 64) {
+  } else if (newSize > 64 || newSize < 1) {
   } else {
     root.style.setProperty("--grid-dimensions", newSize);
     buildGrid(newSize);
