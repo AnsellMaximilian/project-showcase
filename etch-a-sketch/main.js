@@ -5,10 +5,16 @@ const grid = document.querySelector("#grid");
 // Grid size prompt
 const gridSizeUpdateBtn = document.querySelector("#grid-size-prompt button");
 const gridSizeInput = document.querySelector("#grid-size-input");
+const gridSizeInputValue = document.querySelector("#grid-size-prompt span");
 
 const resetBtn = document.querySelector("#reset-btn");
 
 resetBtn.addEventListener("click", () => resetTiles());
+
+gridSizeInput.addEventListener(
+  "input",
+  (e) => (gridSizeInputValue.textContent = e.target.value)
+);
 
 gridSizeUpdateBtn.addEventListener("click", () => {
   const newSize = parseInt(gridSizeInput.value);
