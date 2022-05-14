@@ -1,6 +1,6 @@
 :root {
   font-size: 16px;
-  --grid-size: 32rem;
+  --grid-size: 24rem;
   --grid-dimensions: 16;
   font-size: 16px;
 }
@@ -36,6 +36,8 @@ button:hover {
   height: var(--grid-size);
   border: black 0.5rem solid;
   box-sizing: content-box;
+  margin: 0 auto;
+  flex: 0 0 var(--grid-size);
 }
 
 .tile {
@@ -52,13 +54,15 @@ button:hover {
 
 #controls {
   display: flex;
+  flex-direction: column;
   gap: 2rem;
   align-items: center;
-  margin-bottom: 2rem;
+  justify-content: center;
 }
 
 #grid-size-prompt {
   display: flex;
+  flex-direction: column;
   gap: 0.5rem;
 }
 
@@ -84,6 +88,27 @@ button:hover {
 #grid-size-prompt button {
   background-color: rgb(25, 108, 204);
   color: white;
+}
+
+#container {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --grid-size: 32rem;
+  }
+
+  #container {
+    flex-direction: row;
+  }
+
+  #controls {
+    align-items: flex-end;
+  }
 }
 
 @keyframes rainbow {
