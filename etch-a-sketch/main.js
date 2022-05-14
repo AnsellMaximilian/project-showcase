@@ -1,4 +1,5 @@
 let isRainbowMode = false;
+let color = "black";
 
 const root = document.querySelector(":root");
 
@@ -12,6 +13,10 @@ const gridSizeInputValue = document.querySelector("#grid-size-prompt span");
 const resetBtn = document.querySelector("#reset-btn");
 
 const randomColorBtn = document.querySelector("#random-color-btn");
+
+const colorInput = document.querySelector("#color-input");
+
+colorInput.addEventListener("change", (e) => (color = e.target.value));
 
 randomColorBtn.addEventListener("click", () => {
   isRainbowMode = !isRainbowMode;
@@ -44,8 +49,7 @@ const buildGrid = (size) => {
       if (isRainbowMode) {
         e.target.style.backgroundColor = getRandomRGBColor();
       } else {
-        e.target.classList.add("tile--painted");
-        e.target.style.backgroundColor = "";
+        e.target.style.backgroundColor = color;
       }
     });
     grid.append(tile);
