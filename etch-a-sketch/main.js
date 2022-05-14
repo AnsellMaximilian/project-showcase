@@ -8,8 +8,12 @@ const gridSizeInput = document.querySelector("#grid-size-input");
 
 gridSizeUpdateBtn.addEventListener("click", () => {
   const newSize = parseInt(gridSizeInput.value);
-  root.style.setProperty("--grid-dimensions", newSize);
-  buildGrid(newSize);
+  if (isNaN(newSize)) {
+  } else if (newSize > 64) {
+  } else {
+    root.style.setProperty("--grid-dimensions", newSize);
+    buildGrid(newSize);
+  }
 });
 
 const buildGrid = (size) => {
