@@ -21,6 +21,7 @@ button {
   border-radius: 0.25rem;
   font-size: 1rem;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  background-color: white;
 }
 
 button:hover {
@@ -50,6 +51,25 @@ button:hover {
   background-color: transparent;
   animation: rainbow 2s infinite;
   color: white;
+}
+
+#controls {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+#grid-size-prompt {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#grid-size-prompt > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes rainbow {
