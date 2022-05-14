@@ -53,9 +53,10 @@ const buildGrid = (size) => {
 };
 
 const resetTiles = () =>
-  document
-    .querySelectorAll(".tile")
-    .forEach((tile) => tile.classList.remove("tile--painted"));
+  document.querySelectorAll(".tile").forEach((tile) => {
+    tile.classList.remove("tile--painted");
+    tile.style.backgroundColor = "";
+  });
 
 const getRandomRGBColor = () =>
   `rgb(${getRandomRGBValue()}, ${getRandomRGBValue()}, ${getRandomRGBValue()})`;
