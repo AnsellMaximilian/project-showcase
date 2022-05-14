@@ -36,7 +36,6 @@ button:hover {
   height: var(--grid-size);
   border: black 0.5rem solid;
   box-sizing: content-box;
-  margin: 0 auto;
   flex: 0 0 var(--grid-size);
 }
 
@@ -93,6 +92,7 @@ button:hover {
 #container {
   display: flex;
   flex-direction: column-reverse;
+  align-items: center;
   gap: 2rem;
   padding: 2rem;
 }
@@ -104,6 +104,7 @@ button:hover {
 
   #container {
     flex-direction: row;
+    justify-content: center;
   }
 
   #controls {
