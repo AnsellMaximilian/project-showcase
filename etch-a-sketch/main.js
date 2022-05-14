@@ -6,6 +6,10 @@ const grid = document.querySelector("#grid");
 const gridSizeUpdateBtn = document.querySelector("#grid-size-prompt button");
 const gridSizeInput = document.querySelector("#grid-size-input");
 
+const resetBtn = document.querySelector("#reset-btn");
+
+resetBtn.addEventListener("click", () => resetTiles());
+
 gridSizeUpdateBtn.addEventListener("click", () => {
   const newSize = parseInt(gridSizeInput.value);
   if (isNaN(newSize)) {
@@ -27,5 +31,10 @@ const buildGrid = (size) => {
     grid.append(tile);
   }
 };
+
+const resetTiles = () =>
+  document
+    .querySelectorAll(".tile")
+    .forEach((tile) => tile.classList.remove("tile--painted"));
 
 buildGrid(16);
