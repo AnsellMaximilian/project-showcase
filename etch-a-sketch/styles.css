@@ -26,3 +26,33 @@
 .tile--painted {
   background-color: black;
 }
+
+.random-color-btn--on {
+  background-color: transparent;
+  animation: rainbow 2s infinite;
+}
+
+@keyframes rainbow {
+  from {
+    background-color: red;
+  }
+  17% {
+    background-color: orange;
+  }
+  34% {
+    background-color: yellow;
+  }
+
+  51% {
+    background-color: green;
+  }
+  68% {
+    background-color: blue;
+  }
+  85% {
+    background-color: indigo;
+  }
+  to {
+    background-color: purple;
+  }
+}

@@ -13,10 +13,10 @@ const resetBtn = document.querySelector("#reset-btn");
 
 const randomColorBtn = document.querySelector("#random-color-btn");
 
-randomColorBtn.addEventListener(
-  "click",
-  () => (isRainbowMode = !isRainbowMode)
-);
+randomColorBtn.addEventListener("click", () => {
+  isRainbowMode = !isRainbowMode;
+  randomColorBtn.classList.toggle("random-color-btn--on");
+});
 
 resetBtn.addEventListener("click", () => resetTiles());
 
