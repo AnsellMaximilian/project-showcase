@@ -1,0 +1,56 @@
+:root {
+  --btn-width: 5rem;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+}
+
+#calculator {
+  display: grid;
+  gap: 0.25rem;
+  background-color: rgb(39, 39, 39);
+  padding: 1rem;
+  grid-template-columns: repeat(4, var(--btn-width));
+  grid-template-rows: calc(var(--btn-width) * 1.5) repeat(5, var(--btn-width));
+  border-radius: 0.75rem;
+}
+
+#calculator button {
+  width: 100%;
+  height: 100%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  border-radius: 100%;
+}
+
+#display {
+  height: 100%;
+  /* background-color: blue; */
+  grid-column: 1 / span 4;
+}
+
+#calculator #btn-clear {
+  grid-column: 1 / span 2;
+  border-radius: 3rem;
+}
+
+.btn-digit,
+#btn-sign,
+#btn-decimal {
+  background-color: rgb(88, 88, 88);
+  color: white;
+}
+
+.btn-operation {
+  background-color: rgb(255, 200, 0);
+  color: white;
+}
+
+#btn-clear,
+#btn-delete {
+  background-color: rgb(152, 152, 152);
+}
