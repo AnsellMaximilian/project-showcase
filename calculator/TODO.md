@@ -2,3 +2,5 @@
 - [x] Use appropriate symbols for multiply, divide, and sign
 - [x] Button bg transition
 - [x] Button active style
+- [ ] Round numbers
+- [ ] Keyboard support
