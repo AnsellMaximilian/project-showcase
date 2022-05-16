@@ -37,6 +37,7 @@ body {
   font-weight: bold;
   border: none;
   border-radius: 100%;
+  transition: all 150ms;
 }
 
 #display {
@@ -76,6 +77,13 @@ body {
   background-color: rgb(81, 81, 81);
 }
 
+.btn-digit:active,
+#btn-sign:active,
+#btn-decimal:active,
+.btn-digit:active {
+  background-color: rgb(160, 160, 160);
+}
+
 .btn-operation {
   background-color: rgb(255, 200, 0);
   color: white;
@@ -83,6 +91,10 @@ body {
 
 .btn-operation:hover {
   background-color: rgb(216, 169, 0);
+}
+
+.btn-operation:active {
+  background-color: rgb(255, 212, 57);
 }
 
 #btn-clear,
@@ -93,4 +105,9 @@ body {
 #btn-clear:hover,
 #btn-delete:hover {
   background-color: rgb(136, 136, 136);
+}
+
+#btn-clear:active,
+#btn-delete:active {
+  background-color: rgb(211, 211, 211);
 }
