@@ -120,6 +120,11 @@ const updateDisplayPrev = () =>
 const setOperand = (value) => Number(value);
 
 const evaulate = () => {
+  if (currentOperation === DIVIDE && Number(currentValue) === 0) {
+    updateDisplay("ERROR");
+    clear();
+    return;
+  }
   const res = operate(currentOperation, leftOperand, Number(currentValue));
   currentValue = "0";
   updateDisplay(res);
