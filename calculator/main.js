@@ -97,7 +97,10 @@ const clear = () => {
 };
 
 const backspaceCurrentValue = () => {
-  currentValue = currentValue.slice(0, currentValue.length - 1);
+  currentValue =
+    currentValue.length <= 1
+      ? "0"
+      : currentValue.slice(0, currentValue.length - 1);
 };
 
 const setCurrentOperation = (operation) => {
