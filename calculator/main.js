@@ -49,7 +49,7 @@ const operate = (operation, n1, n2) => {
   }
 };
 
-const updateDisplay = () => (displayMain.textContent = currentValue);
+const updateDisplay = () => (displayMain.textContent = currentValue || "0");
 
 const appendCurrentValue = (number) => (currentValue += number);
 
@@ -57,4 +57,5 @@ const clearCurrentValue = () => (currentValue = "");
 
 const backspaceCurrentValue = () => {
   currentValue = currentValue.slice(0, currentValue.length - 1);
+  //   if (currentValue.length <= 0) currentValue = "0";
 };
