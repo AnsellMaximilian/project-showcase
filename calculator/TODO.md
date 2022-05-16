@@ -1,2 +1,4 @@
 - [ ] Create dark background with yellow box shadow.
 - [ ] Use appropriate symbols for multiply, divide, and sign
+- [ ] Button bg transition
+- [ ] Button active style
