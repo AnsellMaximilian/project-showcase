@@ -84,16 +84,19 @@ body {
   background-color: rgb(160, 160, 160);
 }
 
-.btn-operation {
+.btn-operation,
+#btn-equal {
   background-color: rgb(255, 200, 0);
   color: white;
 }
 
-.btn-operation:hover {
+.btn-operation:hover,
+#btn-equal:hover {
   background-color: rgb(216, 169, 0);
 }
 
-.btn-operation:active {
+.btn-operation:active,
+#btn-equal:active {
   background-color: rgb(255, 212, 57);
 }
 
