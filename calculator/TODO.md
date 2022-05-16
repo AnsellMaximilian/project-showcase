@@ -1,0 +1,2 @@
+- [ ] Create dark background with yellow box shadow.
+- [ ] Use appropriate symbols for multiply, divide, and sign
