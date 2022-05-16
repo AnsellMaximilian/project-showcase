@@ -29,6 +29,7 @@ const deleteBtn = document.querySelector("#btn-delete");
 const clearBtn = document.querySelector("#btn-clear");
 const operationBtns = document.querySelectorAll(".btn-operation");
 const equalBtn = document.querySelector("#btn-equal");
+const decimalBtn = document.querySelector("#btn-decimal");
 
 // LISTENERS
 digitBtns.forEach((btn) => {
@@ -50,6 +51,11 @@ equalBtn.addEventListener("click", () => {
   currentValue = "";
   updateDisplay(res);
   leftOperand = res;
+});
+
+decimalBtn.addEventListener("click", () => {
+  currentValue = currentValue.replace(/$|\.$/, ".");
+  updateDisplay(currentValue);
 });
 
 deleteBtn.addEventListener("click", () => {
