@@ -9,17 +9,26 @@ const { ADD, SUBTRACT, DIVIDE, MULTIPLY } = OPERATIONS;
 
 // For easy concatenation, this will be a string. Whenever needed, it will be converted to number
 let currentValue = "";
+let currentOperation = "";
 
 // DOM ELEMENTS
 const digitBtns = document.querySelectorAll(".btn-digit");
 const displayMain = document.querySelector("#display-main");
 const deleteBtn = document.querySelector("#btn-delete");
 const clearBtn = document.querySelector("#btn-clear");
+const operationBtn = document.querySelectorAll(".btn-operation");
 
 // LISTENERS
 digitBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     appendCurrentValue(e.target.dataset.value);
+    updateDisplay();
+  });
+});
+
+operationBtn.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    setCurrentOperation(e.target.dataset.value);
     updateDisplay();
   });
 });
@@ -59,3 +68,5 @@ const backspaceCurrentValue = () => {
   currentValue = currentValue.slice(0, currentValue.length - 1);
   //   if (currentValue.length <= 0) currentValue = "0";
 };
+
+const setCurrentOperation = (operation) => (currentOperation = operation);
