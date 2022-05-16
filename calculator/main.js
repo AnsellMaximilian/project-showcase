@@ -17,7 +17,7 @@ const OP_HTMLS = {
 };
 
 // For easy concatenation, this will be a string. Whenever needed, it will be converted to number
-let currentValue = ""; // string
+let currentValue = "0"; // string
 let leftOperand = null; // number | null
 let currentOperation = ""; // string
 
@@ -48,7 +48,7 @@ operationBtns.forEach((btn) => {
 
 equalBtn.addEventListener("click", () => {
   const res = operate(currentOperation, leftOperand, Number(currentValue));
-  currentValue = "";
+  currentValue = "0";
   updateDisplay(res);
   leftOperand = res;
 });
@@ -83,14 +83,18 @@ const operate = (operation, n1, n2) => {
   }
 };
 
-const updateDisplay = (value) => (displayMain.textContent = value || "0");
+const updateDisplay = (value) => (displayMain.textContent = value);
 
 const appendCurrentValue = (number) => {
-  currentValue += number;
+  if (currentValue[0] === "0") {
+    currentValue = number;
+  } else {
+    currentValue += number;
+  }
 };
 
 const clear = () => {
-  currentValue = "";
+  currentValue = "0";
   leftOperand = null;
   currentOperation = "";
 };
@@ -100,20 +104,20 @@ const backspaceCurrentValue = () => {
 };
 
 const setCurrentOperation = (operation) => {
-  currentOperation = operation;
-
   // If left operand and current value already exist, operate
-  if (leftOperand && currentValue) {
-    const res = operate(operation, leftOperand, Number(currentValue));
-    currentValue = "";
+  if (leftOperand && Number(currentValue)) {
+    const res = operate(currentOperation, leftOperand, Number(currentValue));
+    currentValue = "0";
     updateDisplay(res);
     leftOperand = res;
   }
 
-  if (currentValue) {
+  currentOperation = operation;
+
+  if (Number(currentValue)) {
     leftOperand = setOperand(currentValue);
   }
-  currentValue = "";
+  currentValue = "0";
 };
 
 const updateDisplayPrev = () =>
@@ -121,5 +125,5 @@ const updateDisplayPrev = () =>
 
 const setOperand = (value) => Number(value);
 
-updateDisplay();
+updateDisplay("0");
 updateDisplayPrev();
