@@ -1,5 +1,6 @@
 :root {
   --btn-width: 5rem;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #container {
@@ -29,8 +30,20 @@
 
 #display {
   height: 100%;
-  /* background-color: blue; */
+  /* background-color: rgb(46, 46, 46); */
   grid-column: 1 / span 4;
+  text-align: right;
+}
+
+#display_prev {
+  color: rgb(184, 184, 184);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+#display_main {
+  color: white;
+  font-size: 2.5rem;
 }
 
 #calculator #btn-clear {
