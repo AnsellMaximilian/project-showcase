@@ -13,6 +13,8 @@ let currentValue = "";
 // DOM ELEMENTS
 const digitBtns = document.querySelectorAll(".btn-digit");
 const displayMain = document.querySelector("#display-main");
+const deleteBtn = document.querySelector("#btn-delete");
+const clearBtn = document.querySelector("#btn-clear");
 
 // LISTENERS
 digitBtns.forEach((btn) => {
@@ -20,6 +22,16 @@ digitBtns.forEach((btn) => {
     appendCurrentValue(e.target.dataset.value);
     updateDisplay();
   });
+});
+
+deleteBtn.addEventListener("click", () => {
+  backspaceCurrentValue();
+  updateDisplay();
+});
+
+clearBtn.addEventListener("click", () => {
+  clearCurrentValue();
+  updateDisplay();
 });
 
 const operate = (operation, n1, n2) => {
@@ -40,3 +52,9 @@ const operate = (operation, n1, n2) => {
 const updateDisplay = () => (displayMain.textContent = currentValue);
 
 const appendCurrentValue = (number) => (currentValue += number);
+
+const clearCurrentValue = () => (currentValue = "");
+
+const backspaceCurrentValue = () => {
+  currentValue = currentValue.slice(0, currentValue.length - 1);
+};
