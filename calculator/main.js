@@ -17,7 +17,7 @@ const OP_HTMLS = {
 };
 
 // For easy concatenation, this will be a string. Whenever needed, it will be converted to number
-let currentValue = 0; // string
+let currentValue = 0; // number
 let leftOperand = null; // number | null
 let currentOperation = ""; // string
 
@@ -67,18 +67,24 @@ clearBtn.addEventListener("click", () => {
 });
 
 const operate = (operation, n1, n2) => {
+  let res = 0;
   switch (operation) {
     case ADD:
-      return n1 + n2;
+      res = n1 + n2;
+      break;
     case SUBTRACT:
-      return n1 - n2;
+      res = n1 - n2;
+      break;
     case DIVIDE:
-      return n1 / n2;
+      res = n1 / n2;
+      break;
     case MULTIPLY:
-      return n1 * n2;
+      res = n1 * n2;
+      break;
     default:
       break;
   }
+  return Math.round(res * 1000) / 1000;
 };
 
 const updateDisplay = (value) => (displayMain.textContent = value);
