@@ -17,7 +17,7 @@ const OP_HTMLS = {
 };
 
 // For easy concatenation, this will be a string. Whenever needed, it will be converted to number
-let currentValue = "0"; // string
+let currentValue = 0; // string
 let leftOperand = null; // number | null
 let currentOperation = ""; // string
 
@@ -42,7 +42,7 @@ digitBtns.forEach((btn) => {
 operationBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     setCurrentOperation(e.target.dataset.value);
-    updateDisplayPrev();
+    updateDisplayPrev(OP_HTMLS[currentOperation]);
   });
 });
 
@@ -51,7 +51,8 @@ equalBtn.addEventListener("click", () => {
 });
 
 decimalBtn.addEventListener("click", () => {
-  currentValue = currentValue.replace(/$|\.$/, ".");
+  const currentValueString = String(currentValue);
+  currentValue = Number(currentValueString.replace(/$|\.$/, "."));
   updateDisplay(currentValue);
 });
 
@@ -83,56 +84,59 @@ const operate = (operation, n1, n2) => {
 const updateDisplay = (value) => (displayMain.textContent = value);
 
 const appendCurrentValue = (number) => {
-  if (currentValue[0] === "0") {
-    currentValue = number;
+  if (currentValue === 0) {
+    currentValue = Number(number);
   } else {
-    currentValue += number;
+    const currentValueString = String(currentValue);
+
+    currentValue = currentValueString + number;
   }
 };
 
 const clear = () => {
-  currentValue = "0";
+  currentValue = 0;
   leftOperand = null;
   currentOperation = "";
 };
 
 const backspaceCurrentValue = () => {
-  currentValue =
-    currentValue.length <= 1
-      ? "0"
-      : currentValue.slice(0, currentValue.length - 1);
+  const currentValueString = String(currentValue);
+  currentValue = Number(
+    currentValueString.length <= 1
+      ? 0
+      : currentValueString.slice(0, currentValueString.length - 1)
+  );
 };
 
 const setCurrentOperation = (operation) => {
   // If left operand and current value already exist, operate
-  if (leftOperand && Number(currentValue)) {
+  if (leftOperand && currentValue) {
     evaulate();
   }
 
   currentOperation = operation;
 
-  if (Number(currentValue)) {
+  if (currentValue) {
     leftOperand = setOperand(currentValue);
   }
-  currentValue = "0";
+  currentValue = 0;
 };
 
-const updateDisplayPrev = () =>
-  (displayPrev.innerHTML = OP_HTMLS[currentOperation]);
+const updateDisplayPrev = (value) => (displayPrev.innerHTML = value);
 
 const setOperand = (value) => Number(value);
 
 const evaulate = () => {
-  if (currentOperation === DIVIDE && Number(currentValue) === 0) {
+  if (currentOperation === DIVIDE && currentValue === 0) {
     updateDisplay("ERROR");
     clear();
     return;
   }
-  const res = operate(currentOperation, leftOperand, Number(currentValue));
-  currentValue = "0";
+  const res = operate(currentOperation, leftOperand, currentValue);
+  currentValue = 0;
   updateDisplay(res);
   leftOperand = res;
 };
 
-updateDisplay("0");
-updateDisplayPrev();
+updateDisplay(0);
+updateDisplayPrev("Welcome");
