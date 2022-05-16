@@ -20,6 +20,7 @@ const OP_HTMLS = {
 let currentValue = 0; // number
 let leftOperand = null; // number | null
 let currentOperation = ""; // string
+let decimalMode = false;
 
 // DOM ELEMENTS
 const digitBtns = document.querySelectorAll(".btn-digit");
@@ -51,9 +52,8 @@ equalBtn.addEventListener("click", () => {
 });
 
 decimalBtn.addEventListener("click", () => {
-  const currentValueString = String(currentValue);
-  currentValue = Number(currentValueString.replace(/$|\.$/, "."));
-  updateDisplay(currentValue);
+  decimalMode = true;
+  updateDisplay(currentValue + ".");
 });
 
 deleteBtn.addEventListener("click", () => {
@@ -91,18 +91,32 @@ const updateDisplay = (value) => (displayMain.textContent = value);
 
 const appendCurrentValue = (number) => {
   if (currentValue === 0) {
-    currentValue = Number(number);
+    currentValue = Number(
+      decimalMode ? setDecimal(currentValue, number) : number
+    );
   } else {
     const currentValueString = String(currentValue);
-
-    currentValue = currentValueString + number;
+    currentValue = Number(
+      decimalMode
+        ? setDecimal(currentValue, number)
+        : currentValueString + number
+    );
   }
+  if (decimalMode) decimalMode = false;
+};
+
+const setDecimal = (value, decimal) => {
+  decimalMode = false;
+  const stringValue = String(value);
+  if (stringValue.match(/\./)) return `${stringValue}${decimal}`;
+  return Number(`${stringValue}.${decimal}`);
 };
 
 const clear = () => {
   currentValue = 0;
   leftOperand = null;
   currentOperation = "";
+  decimalMode = false;
 };
 
 const backspaceCurrentValue = () => {
