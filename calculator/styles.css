@@ -16,10 +16,12 @@ body {
 }
 
 #calculator {
-  box-shadow: 10px 10px 25px 0 rgba(255, 217, 0, 0.281),
+  /* box-shadow: 10px 10px 25px 0 rgba(255, 217, 0, 0.281),
     -10px 10px 25px 0 rgba(255, 217, 0, 0.281),
     10px -10px 25px 0 rgba(255, 217, 0, 0.281),
-    -10px -10px 25px 0 rgba(255, 217, 0, 0.281);
+    -10px -10px 25px 0 rgba(255, 217, 0, 0.281); */
+  box-shadow: 0 0 3rem 1rem rgba(255, 217, 0, 0.669);
+
   display: grid;
   gap: 0.25rem;
   background-color: rgb(39, 39, 39);
