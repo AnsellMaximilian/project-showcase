@@ -14,6 +14,7 @@ let currentOperation = "";
 // DOM ELEMENTS
 const digitBtns = document.querySelectorAll(".btn-digit");
 const displayMain = document.querySelector("#display-main");
+const displayPrev = document.querySelector("#display-prev");
 const deleteBtn = document.querySelector("#btn-delete");
 const clearBtn = document.querySelector("#btn-clear");
 const operationBtn = document.querySelectorAll(".btn-operation");
@@ -29,7 +30,7 @@ digitBtns.forEach((btn) => {
 operationBtn.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     setCurrentOperation(e.target.dataset.value);
-    updateDisplay();
+    updateDisplayPrev();
   });
 });
 
@@ -70,3 +71,5 @@ const backspaceCurrentValue = () => {
 };
 
 const setCurrentOperation = (operation) => (currentOperation = operation);
+
+const updateDisplayPrev = () => (displayPrev.textContent = currentOperation);
