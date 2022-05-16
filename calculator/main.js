@@ -3,13 +3,23 @@ const OPERATIONS = {
   SUBTRACT: "SUBTRACT",
   DIVIDE: "DIVIDE",
   MULTIPLY: "MULTIPLY",
+  EQUAL: "EQUAL",
 };
 
-const { ADD, SUBTRACT, DIVIDE, MULTIPLY } = OPERATIONS;
+const { ADD, SUBTRACT, DIVIDE, MULTIPLY, EQUAL } = OPERATIONS;
+
+const OP_HTMLS = {
+  [ADD]: "&plus;",
+  [SUBTRACT]: "&minus;",
+  [DIVIDE]: "&divide;",
+  [MULTIPLY]: "&times;",
+  [EQUAL]: "&equals;",
+};
 
 // For easy concatenation, this will be a string. Whenever needed, it will be converted to number
-let currentValue = "";
-let currentOperation = "";
+let currentValue = ""; // string
+let leftOperand = null; // number | null
+let currentOperation = ""; // string
 
 // DOM ELEMENTS
 const digitBtns = document.querySelectorAll(".btn-digit");
@@ -17,31 +27,39 @@ const displayMain = document.querySelector("#display-main");
 const displayPrev = document.querySelector("#display-prev");
 const deleteBtn = document.querySelector("#btn-delete");
 const clearBtn = document.querySelector("#btn-clear");
-const operationBtn = document.querySelectorAll(".btn-operation");
+const operationBtns = document.querySelectorAll(".btn-operation");
+const equalBtn = document.querySelector("#btn-equal");
 
 // LISTENERS
 digitBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     appendCurrentValue(e.target.dataset.value);
-    updateDisplay();
+    updateDisplay(currentValue);
   });
 });
 
-operationBtn.forEach((btn) => {
+operationBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     setCurrentOperation(e.target.dataset.value);
     updateDisplayPrev();
   });
 });
 
+equalBtn.addEventListener("click", () => {
+  const res = operate(currentOperation, leftOperand, Number(currentValue));
+  currentValue = "";
+  updateDisplay(res);
+  leftOperand = res;
+});
+
 deleteBtn.addEventListener("click", () => {
   backspaceCurrentValue();
-  updateDisplay();
+  updateDisplay(currentValue);
 });
 
 clearBtn.addEventListener("click", () => {
-  clearCurrentValue();
-  updateDisplay();
+  clear();
+  updateDisplay(currentValue);
 });
 
 const operate = (operation, n1, n2) => {
@@ -59,17 +77,43 @@ const operate = (operation, n1, n2) => {
   }
 };
 
-const updateDisplay = () => (displayMain.textContent = currentValue || "0");
+const updateDisplay = (value) => (displayMain.textContent = value || "0");
 
-const appendCurrentValue = (number) => (currentValue += number);
+const appendCurrentValue = (number) => {
+  currentValue += number;
+};
 
-const clearCurrentValue = () => (currentValue = "");
+const clear = () => {
+  currentValue = "";
+  leftOperand = null;
+  currentOperation = "";
+};
 
 const backspaceCurrentValue = () => {
   currentValue = currentValue.slice(0, currentValue.length - 1);
-  //   if (currentValue.length <= 0) currentValue = "0";
 };
 
-const setCurrentOperation = (operation) => (currentOperation = operation);
+const setCurrentOperation = (operation) => {
+  currentOperation = operation;
 
-const updateDisplayPrev = () => (displayPrev.textContent = currentOperation);
+  // If left operand and current value already exist, operate
+  if (leftOperand && currentValue) {
+    const res = operate(operation, leftOperand, Number(currentValue));
+    currentValue = "";
+    updateDisplay(res);
+    leftOperand = res;
+  }
+
+  if (currentValue) {
+    leftOperand = setOperand(currentValue);
+  }
+  currentValue = "";
+};
+
+const updateDisplayPrev = () =>
+  (displayPrev.innerHTML = OP_HTMLS[currentOperation]);
+
+const setOperand = (value) => Number(value);
+
+updateDisplay();
+updateDisplayPrev();
