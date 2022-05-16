@@ -47,10 +47,7 @@ operationBtns.forEach((btn) => {
 });
 
 equalBtn.addEventListener("click", () => {
-  const res = operate(currentOperation, leftOperand, Number(currentValue));
-  currentValue = "0";
-  updateDisplay(res);
-  leftOperand = res;
+  evaulate();
 });
 
 decimalBtn.addEventListener("click", () => {
@@ -106,10 +103,7 @@ const backspaceCurrentValue = () => {
 const setCurrentOperation = (operation) => {
   // If left operand and current value already exist, operate
   if (leftOperand && Number(currentValue)) {
-    const res = operate(currentOperation, leftOperand, Number(currentValue));
-    currentValue = "0";
-    updateDisplay(res);
-    leftOperand = res;
+    evaulate();
   }
 
   currentOperation = operation;
@@ -124,6 +118,13 @@ const updateDisplayPrev = () =>
   (displayPrev.innerHTML = OP_HTMLS[currentOperation]);
 
 const setOperand = (value) => Number(value);
+
+const evaulate = () => {
+  const res = operate(currentOperation, leftOperand, Number(currentValue));
+  currentValue = "0";
+  updateDisplay(res);
+  leftOperand = res;
+};
 
 updateDisplay("0");
 updateDisplayPrev();
