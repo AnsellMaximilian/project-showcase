@@ -65,6 +65,10 @@ const handleEqual = () => {
 equalBtn.addEventListener("click", handleEqual);
 
 const handleDecimal = () => {
+  if (leftOperand && !currentOperation) {
+    updateDisplayPrev("");
+    clear();
+  }
   decimalMode = true;
   updateDisplay(currentValue + ".");
 };
@@ -204,6 +208,7 @@ const evaluate = () => {
   currentValue = 0;
   updateDisplay(res);
   leftOperand = res;
+  currentOperation = "";
 };
 
 updateDisplay(0);
