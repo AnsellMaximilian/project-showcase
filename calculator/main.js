@@ -16,7 +16,6 @@ const OP_HTMLS = {
   [EQUAL]: "&equals;",
 };
 
-// For easy concatenation, this will be a string. Whenever needed, it will be converted to number
 let currentValue = 0; // number
 let leftOperand = null; // number | null
 let currentOperation = ""; // string
@@ -44,11 +43,13 @@ digitBtns.forEach((btn) => {
 operationBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     setCurrentOperation(e.target.dataset.value);
-    updateDisplayPrev(OP_HTMLS[currentOperation]);
   });
 });
 
 equalBtn.addEventListener("click", () => {
+  updateDisplayPrev(
+    `${leftOperand} ${OP_HTMLS[currentOperation]} ${currentValue} =`
+  );
   evaluate();
 });
 
@@ -140,10 +141,12 @@ const backspaceCurrentValue = () => {
 };
 
 const setCurrentOperation = (operation) => {
-  // If left operand and current value already exist, evaluate
+  // If left operand and current value already exist, evaluate with previous operation
   if (leftOperand && currentValue) {
     evaluate();
   }
+
+  updateDisplayPrev(`${leftOperand || currentValue} ${OP_HTMLS[operation]}`);
 
   currentOperation = operation;
 
