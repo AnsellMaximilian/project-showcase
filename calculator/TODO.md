@@ -5,4 +5,4 @@
 - [x] Round numbers
 - [ ] Keyboard support
 - [ ] Fix delete bug after evaluation
-- [ ] Negative/positive mode
+- [x] Negative/positive mode
