@@ -49,7 +49,7 @@ operationBtns.forEach((btn) => {
 });
 
 equalBtn.addEventListener("click", () => {
-  evaulate();
+  evaluate();
 });
 
 decimalBtn.addEventListener("click", () => {
@@ -140,9 +140,9 @@ const backspaceCurrentValue = () => {
 };
 
 const setCurrentOperation = (operation) => {
-  // If left operand and current value already exist, operate
+  // If left operand and current value already exist, evaluate
   if (leftOperand && currentValue) {
-    evaulate();
+    evaluate();
   }
 
   currentOperation = operation;
@@ -157,7 +157,7 @@ const updateDisplayPrev = (value) => (displayPrev.innerHTML = value);
 
 const setOperand = (value) => Number(value);
 
-const evaulate = () => {
+const evaluate = () => {
   if (currentOperation === DIVIDE && currentValue === 0) {
     updateDisplay("ERROR");
     clear();
@@ -170,4 +170,3 @@ const evaulate = () => {
 };
 
 updateDisplay(0);
-updateDisplayPrev("Welcome");
