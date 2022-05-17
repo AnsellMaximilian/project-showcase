@@ -16,6 +16,13 @@ const OP_HTMLS = {
   [EQUAL]: "&equals;",
 };
 
+const OPSYMBOL_TO_CONSTANT = {
+  "+": ADD,
+  "-": SUBTRACT,
+  "/": DIVIDE,
+  "*": MULTIPLY,
+};
+
 let currentValue = 0; // number
 let leftOperand = null; // number | null
 let currentOperation = ""; // string
@@ -46,19 +53,23 @@ operationBtns.forEach((btn) => {
   });
 });
 
-equalBtn.addEventListener("click", () => {
+const handleEqual = () => {
   if (leftOperand && currentValue) {
     updateDisplayPrev(
       `${leftOperand} ${OP_HTMLS[currentOperation]} ${currentValue} =`
     );
     evaluate();
   }
-});
+};
 
-decimalBtn.addEventListener("click", () => {
+equalBtn.addEventListener("click", handleEqual);
+
+const handleDecimal = () => {
   decimalMode = true;
   updateDisplay(currentValue + ".");
-});
+};
+
+decimalBtn.addEventListener("click", handleDecimal);
 
 signBtn.addEventListener("click", () => {
   if (currentValue) {
@@ -70,16 +81,35 @@ signBtn.addEventListener("click", () => {
   }
 });
 
-deleteBtn.addEventListener("click", () => {
+const handleDelete = () => {
   backspaceCurrentValue();
   updateDisplay(currentValue);
-});
+};
+
+deleteBtn.addEventListener("click", handleDelete);
 
 clearBtn.addEventListener("click", () => {
   clear();
-
   updateDisplay(currentValue);
   updateDisplayPrev("");
+});
+
+// KEYBOARD SUPPORT
+document.addEventListener("keydown", (event) => {
+  var key = event.key;
+  var code = event.code;
+  if (key >= 0 && key <= 9) {
+    appendCurrentValue(key);
+    updateDisplay(currentValue);
+  } else if (key === ".") {
+    handleDecimal();
+  } else if (Object.keys(OPSYMBOL_TO_CONSTANT).includes(key)) {
+    setCurrentOperation(OPSYMBOL_TO_CONSTANT[key]);
+  } else if (key === "=" || key === "Enter") {
+    handleEqual();
+  } else if (key === "Backspace" || key === "Delete") {
+    handleDelete();
+  }
 });
 
 const operate = (operation, n1, n2) => {

@@ -3,6 +3,6 @@
 - [x] Button bg transition
 - [x] Button active style
 - [x] Round numbers
-- [ ] Keyboard support
+- [x] Keyboard support
 - [x] Fix delete bug after evaluation
 - [x] Negative/positive mode
