@@ -75,7 +75,9 @@ deleteBtn.addEventListener("click", () => {
 
 clearBtn.addEventListener("click", () => {
   clear();
+
   updateDisplay(currentValue);
+  updateDisplayPrev("");
 });
 
 const operate = (operation, n1, n2) => {
