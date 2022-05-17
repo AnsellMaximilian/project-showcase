@@ -47,10 +47,12 @@ operationBtns.forEach((btn) => {
 });
 
 equalBtn.addEventListener("click", () => {
-  updateDisplayPrev(
-    `${leftOperand} ${OP_HTMLS[currentOperation]} ${currentValue} =`
-  );
-  evaluate();
+  if (leftOperand && currentValue) {
+    updateDisplayPrev(
+      `${leftOperand} ${OP_HTMLS[currentOperation]} ${currentValue} =`
+    );
+    evaluate();
+  }
 });
 
 decimalBtn.addEventListener("click", () => {

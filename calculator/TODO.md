@@ -4,5 +4,5 @@
 - [x] Button active style
 - [x] Round numbers
 - [ ] Keyboard support
-- [ ] Fix delete bug after evaluation
+- [x] Fix delete bug after evaluation
 - [x] Negative/positive mode
