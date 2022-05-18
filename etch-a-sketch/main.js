@@ -12,7 +12,6 @@ const gridSizeInputValue = document.querySelector("#grid-size-prompt span");
 const resetBtn = document.querySelector("#reset-btn");
 const guideBtn = document.querySelector("#guide-btn");
 const randomColorBtn = document.querySelector("#random-color-btn");
-
 const colorInput = document.querySelector("#color-input");
 
 document.body.addEventListener("contextmenu", (e) => e.preventDefault());
@@ -31,6 +30,8 @@ randomColorBtn.addEventListener("click", () => {
   isRainbowMode = !isRainbowMode;
   randomColorBtn.classList.toggle("random-color-btn--on");
 });
+
+randomColorBtn.addEventListener("dblclick", () => fillGridRainbow());
 
 guideBtn.addEventListener("click", (e) => {
   e.target.classList.toggle("btn--on");
@@ -98,5 +99,10 @@ const getRandomRGBColor = () =>
   `rgb(${getRandomRGBValue()}, ${getRandomRGBValue()}, ${getRandomRGBValue()})`;
 
 const getRandomRGBValue = () => Math.floor(Math.random() * 256);
+
+const fillGridRainbow = () =>
+  document
+    .querySelectorAll("#grid .tile")
+    .forEach((tile) => (tile.style.backgroundColor = getRandomRGBColor()));
 
 buildGrid(16);
