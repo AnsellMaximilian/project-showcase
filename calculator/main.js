@@ -109,7 +109,7 @@ document.addEventListener("keydown", (event) => {
     handleDecimal();
   } else if (Object.keys(OPSYMBOL_TO_CONSTANT).includes(key)) {
     setCurrentOperation(OPSYMBOL_TO_CONSTANT[key]);
-  } else if (key === "=" || key === "Enter") {
+  } else if (key === "=" || key.includes("Enter")) {
     handleEqual();
   } else if (key === "Backspace" || key === "Delete") {
     handleDelete();
