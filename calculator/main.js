@@ -54,7 +54,7 @@ operationBtns.forEach((btn) => {
 });
 
 const handleEqual = () => {
-  if (leftOperand && currentValue) {
+  if (currentOperation) {
     updateDisplayPrev(
       `${leftOperand} ${OP_HTMLS[currentOperation]} ${currentValue} =`
     );
@@ -191,11 +191,12 @@ const setCurrentOperation = (operation) => {
 
   updateDisplayPrev(`${leftOperand || currentValue} ${OP_HTMLS[operation]}`);
 
-  currentOperation = operation;
-
-  if (currentValue) {
+  if (!currentOperation && !leftOperand) {
     leftOperand = setOperand(currentValue);
   }
+
+  currentOperation = operation;
+
   currentValue = 0;
 };
 
