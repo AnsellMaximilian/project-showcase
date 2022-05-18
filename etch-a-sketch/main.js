@@ -103,13 +103,13 @@ const getRandomRGBColor = () =>
 const getRandomRGBValue = () => Math.floor(Math.random() * 256);
 
 const fillGridRainbow = () =>
-  document
-    .querySelectorAll("#grid .tile")
-    .forEach((tile) => (tile.style.backgroundColor = getRandomRGBColor()));
+  getAllTiles().forEach(
+    (tile) => (tile.style.backgroundColor = getRandomRGBColor())
+  );
 
 const bucketPaint = (color) =>
-  document
-    .querySelectorAll("#grid .tile")
-    .forEach((tile) => (tile.style.backgroundColor = color));
+  getAllTiles().forEach((tile) => (tile.style.backgroundColor = color));
+
+const getAllTiles = () => document.querySelectorAll("#grid .tile");
 
 buildGrid(16);
