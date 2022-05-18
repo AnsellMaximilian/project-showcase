@@ -18,6 +18,8 @@ document.body.addEventListener("contextmenu", (e) => e.preventDefault());
 
 colorInput.addEventListener("change", (e) => (color = e.target.value));
 
+colorInput.addEventListener("dblclick", (e) => bucketPaint(e.target.value));
+
 grid.addEventListener("mouseover", (e) => {
   e.preventDefault();
   if (e.target.classList.contains("tile")) {
@@ -104,5 +106,10 @@ const fillGridRainbow = () =>
   document
     .querySelectorAll("#grid .tile")
     .forEach((tile) => (tile.style.backgroundColor = getRandomRGBColor()));
+
+const bucketPaint = (color) =>
+  document
+    .querySelectorAll("#grid .tile")
+    .forEach((tile) => (tile.style.backgroundColor = color));
 
 buildGrid(16);
