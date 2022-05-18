@@ -16,11 +16,12 @@ const randomColorBtn = document.querySelector("#random-color-btn");
 
 const colorInput = document.querySelector("#color-input");
 
+document.body.addEventListener("contextmenu", (e) => e.preventDefault());
+
 colorInput.addEventListener("change", (e) => (color = e.target.value));
 
 grid.addEventListener("mouseover", (e) => {
   e.preventDefault();
-  console.log(e.buttons);
   if (e.target.classList.contains("tile")) {
     if (e.buttons === 1) paintTile(e.target);
     if (e.buttons === 2) clearTile(e.target);
@@ -58,6 +59,12 @@ const buildGrid = (size) => {
     tile.classList.add("tile");
     tile.addEventListener("click", (e) => {
       paintTile(e.target);
+    });
+    tile.addEventListener("contextmenu", (e) => {
+      console.log(e.buttons);
+      e.preventDefault();
+      clearTile(e.target);
+      return false;
     });
     tile.addEventListener("dragstart", (e) => e.preventDefault());
     tile.addEventListener("drop", (e) => e.preventDefault());
