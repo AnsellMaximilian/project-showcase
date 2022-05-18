@@ -51,6 +51,9 @@ const buildGrid = (size) => {
   for (let i = 1; i <= size * size; i++) {
     const tile = document.createElement("div");
     tile.classList.add("tile");
+    tile.addEventListener("click", (e) => {
+      paintTile(e.target);
+    });
     grid.append(tile);
   }
 };
