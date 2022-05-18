@@ -33,7 +33,8 @@ resetBtn.addEventListener("click", () => resetTiles());
 
 gridSizeInput.addEventListener(
   "input",
-  (e) => (gridSizeInputValue.textContent = e.target.value)
+  (e) =>
+    (gridSizeInputValue.textContent = e.target.value + "x" + e.target.value)
 );
 
 gridSizeUpdateBtn.addEventListener("click", () => {
