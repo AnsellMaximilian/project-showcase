@@ -9,9 +9,8 @@ const grid = document.querySelector("#grid");
 const gridSizeUpdateBtn = document.querySelector("#grid-size-prompt button");
 const gridSizeInput = document.querySelector("#grid-size-input");
 const gridSizeInputValue = document.querySelector("#grid-size-prompt span");
-
 const resetBtn = document.querySelector("#reset-btn");
-
+const guideBtn = document.querySelector("#guide-btn");
 const randomColorBtn = document.querySelector("#random-color-btn");
 
 const colorInput = document.querySelector("#color-input");
@@ -31,6 +30,11 @@ grid.addEventListener("mouseover", (e) => {
 randomColorBtn.addEventListener("click", () => {
   isRainbowMode = !isRainbowMode;
   randomColorBtn.classList.toggle("random-color-btn--on");
+});
+
+guideBtn.addEventListener("click", (e) => {
+  e.target.classList.toggle("btn--on");
+  grid.classList.toggle("guidelines");
 });
 
 resetBtn.addEventListener("click", () => resetTiles());

@@ -56,6 +56,12 @@ button:hover {
   filter: brightness(0.9);
 }
 
+button.btn--on {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+
 #grid {
   display: flex;
   flex-wrap: wrap;
@@ -69,7 +75,11 @@ button:hover {
 .tile {
   width: calc(var(--grid-size) / var(--grid-dimensions));
   height: calc(var(--grid-size) / var(--grid-dimensions));
-  /* background-color: red; */
+  box-sizing: border-box;
+}
+
+#grid.guidelines .tile {
+  border: 1px solid black;
 }
 
 .random-color-btn--on {
