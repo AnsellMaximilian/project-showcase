@@ -19,8 +19,11 @@ const colorInput = document.querySelector("#color-input");
 colorInput.addEventListener("change", (e) => (color = e.target.value));
 
 grid.addEventListener("mouseover", (e) => {
-  if (e.target.classList.contains("tile") && e.buttons === 1) {
-    paintTile(e.target);
+  e.preventDefault();
+  console.log(e.buttons);
+  if (e.target.classList.contains("tile")) {
+    if (e.buttons === 1) paintTile(e.target);
+    if (e.buttons === 2) clearTile(e.target);
   }
 });
 
@@ -68,6 +71,10 @@ const paintTile = (tile) => {
   } else {
     tile.style.backgroundColor = color;
   }
+};
+
+const clearTile = (tile) => {
+  tile.style.backgroundColor = "transparent";
 };
 
 const resetTiles = () =>
