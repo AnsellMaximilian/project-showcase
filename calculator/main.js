@@ -92,16 +92,17 @@ const handleDelete = () => {
 
 deleteBtn.addEventListener("click", handleDelete);
 
-clearBtn.addEventListener("click", () => {
+const handleClear = () => {
   clear();
   updateDisplay(currentValue);
   updateDisplayPrev("");
-});
+};
+
+clearBtn.addEventListener("click", handleClear);
 
 // KEYBOARD SUPPORT
 document.addEventListener("keydown", (event) => {
   var key = event.key;
-  var code = event.code;
   if (key >= 0 && key <= 9) {
     appendCurrentValue(key);
     updateDisplay(currentValue);
@@ -113,6 +114,8 @@ document.addEventListener("keydown", (event) => {
     handleEqual();
   } else if (key === "Backspace" || key === "Delete") {
     handleDelete();
+  } else if (key === "Escape") {
+    handleClear();
   }
 });
 
