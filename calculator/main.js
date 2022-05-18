@@ -144,6 +144,8 @@ const appendCurrentValue = (number) => {
     currentValue = Number(
       decimalMode ? setDecimal(currentValue, number) : number
     );
+  } else if (String(currentValue).length + 1 > 10) {
+    currentValue = 999999999999;
   } else {
     const currentValueString = String(currentValue);
     currentValue = Number(
