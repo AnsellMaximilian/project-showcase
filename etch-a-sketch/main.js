@@ -18,9 +18,11 @@ const colorInput = document.querySelector("#color-input");
 
 colorInput.addEventListener("change", (e) => (color = e.target.value));
 
-// grid.addEventListener("mouseover", (e) => {
-//   console.log(e.target);
-// });
+grid.addEventListener("mouseover", (e) => {
+  if (e.target.classList.contains("tile") && e.buttons === 1) {
+    paintTile(e.target);
+  }
+});
 
 randomColorBtn.addEventListener("click", () => {
   isRainbowMode = !isRainbowMode;
@@ -49,9 +51,6 @@ const buildGrid = (size) => {
   for (let i = 1; i <= size * size; i++) {
     const tile = document.createElement("div");
     tile.classList.add("tile");
-    tile.addEventListener("mouseover", (e) => {
-      paintTile(e.target);
-    });
     grid.append(tile);
   }
 };
