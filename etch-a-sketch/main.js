@@ -18,6 +18,10 @@ const colorInput = document.querySelector("#color-input");
 
 colorInput.addEventListener("change", (e) => (color = e.target.value));
 
+// grid.addEventListener("mouseover", (e) => {
+//   console.log(e.target);
+// });
+
 randomColorBtn.addEventListener("click", () => {
   isRainbowMode = !isRainbowMode;
   randomColorBtn.classList.toggle("random-color-btn--on");
@@ -46,13 +50,17 @@ const buildGrid = (size) => {
     const tile = document.createElement("div");
     tile.classList.add("tile");
     tile.addEventListener("mouseover", (e) => {
-      if (isRainbowMode) {
-        e.target.style.backgroundColor = getRandomRGBColor();
-      } else {
-        e.target.style.backgroundColor = color;
-      }
+      paintTile(e.target);
     });
     grid.append(tile);
+  }
+};
+
+const paintTile = (tile) => {
+  if (isRainbowMode) {
+    tile.style.backgroundColor = getRandomRGBColor();
+  } else {
+    tile.style.backgroundColor = color;
   }
 };
 
