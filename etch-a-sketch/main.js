@@ -50,10 +50,13 @@ const buildGrid = (size) => {
   grid.innerHTML = "";
   for (let i = 1; i <= size * size; i++) {
     const tile = document.createElement("div");
+    tile.setAttribute("draggable", false);
     tile.classList.add("tile");
     tile.addEventListener("click", (e) => {
       paintTile(e.target);
     });
+    tile.addEventListener("dragstart", (e) => e.preventDefault());
+    tile.addEventListener("drop", (e) => e.preventDefault());
     grid.append(tile);
   }
 };
