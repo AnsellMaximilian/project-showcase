@@ -109,6 +109,7 @@ body {
 #btn-clear,
 #btn-delete {
   background-color: rgb(152, 152, 152);
+  color: black;
 }
 
 #btn-clear:hover,
