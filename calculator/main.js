@@ -143,6 +143,11 @@ const operate = (operation, n1, n2) => {
 const updateDisplay = (value) => (displayMain.textContent = value);
 
 const appendCurrentValue = (number) => {
+  if (!currentOperation && leftOperand) {
+    clear();
+    updateDisplayPrev("");
+  }
+
   if (currentValue === 0) {
     currentValue = Number(
       decimalMode ? setDecimal(currentValue, number) : number
