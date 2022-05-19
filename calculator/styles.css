@@ -121,12 +121,17 @@ body {
   background-color: rgb(211, 211, 211);
 }
 
+#calculator #btn-sign {
+  font-size: 0.75rem;
+}
+
 @media (min-width: 768px) {
   :root {
     --btn-width: 4.5rem;
   }
 
-  #calculator button {
+  #calculator button,
+  #btn-sign {
     font-size: 1.25rem;
   }
 
