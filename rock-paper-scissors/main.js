@@ -97,7 +97,7 @@ const hideResetPrompt = () => (resetPrompt.style.display = "none");
 const resetGame = () => {
   playerScore = 0;
   computerScore = 0;
-  updateAnnouncement("Game Reset! Choose Rock, Paper, or Scissors");
+  updateAnnouncement("Choose Rock, Paper, or Scissors");
   updateScoreboard();
   hideResetPrompt();
   enableButtons();
