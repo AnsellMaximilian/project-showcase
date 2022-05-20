@@ -31,6 +31,8 @@ const choicesArray = [ROCK, PAPER, SCISSORS];
 let playerScore = 0;
 let computerScore = 0;
 
+let drawCount = 0;
+
 // DOM
 const btnRock = document.querySelector("#btn-rock");
 const btnPaper = document.querySelector("#btn-paper");
@@ -65,8 +67,11 @@ const playRound = (playerSelection, computerSelection) => {
   const isDraw = isPlayerWinner === null;
 
   if (isDraw) {
-    updateAnnouncement(`Draw!`);
+    updateAnnouncement(
+      `Draw!${++drawCount > 1 ? ` ${drawCount} in a row!` : ""}`
+    );
   } else {
+    drawCount = 0;
     isPlayerWinner ? playerScore++ : computerScore++;
 
     updateAnnouncement(
