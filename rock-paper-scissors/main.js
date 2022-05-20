@@ -4,6 +4,13 @@ const choices = {
   SCISSORS: "SCISSORS",
 };
 
+const RECORD_KEYS = {
+  PLAYER_RECORD: "rps-player-record",
+  COMPUTER_RECORD: "rps-computer-record",
+};
+
+const { PLAYER_RECORD, COMPUTER_RECORD } = RECORD_KEYS;
+
 const { ROCK, PAPER, SCISSORS } = choices;
 
 const beatTable = {
@@ -118,13 +125,36 @@ const enableButtons = () => {
 const checkWin = () => {
   if (playerScore === 5) {
     updateAnnouncement("YOU WON THE GAME!");
+    localStorage.setItem(
+      PLAYER_RECORD,
+      Number(localStorage.getItem(PLAYER_RECORD)) + 1
+    );
   } else if (computerScore === 5) {
     updateAnnouncement("YOU LOST!");
+    localStorage.setItem(
+      COMPUTER_RECORD,
+      Number(localStorage.getItem(COMPUTER_RECORD)) + 1
+    );
   } else {
     return;
   }
   displayResetPrompt();
+  updateRecord();
   disableButtons();
 };
 
+const updateRecord = () => {
+  const playerRecordDisplay = document.querySelector("#record--player__score");
+  const computerRecordDisplay = document.querySelector(
+    "#record--computer__score"
+  );
+
+  const playerRecord = localStorage.getItem(PLAYER_RECORD) || 0;
+  const computerRecord = localStorage.getItem(COMPUTER_RECORD) || 0;
+
+  playerRecordDisplay.textContent = playerRecord;
+  computerRecordDisplay.textContent = computerRecord;
+};
+
 updateScoreboard();
+updateRecord();
