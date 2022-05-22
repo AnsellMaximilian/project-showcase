@@ -8,6 +8,15 @@
   --text-light: rgb(231, 231, 231);
 }
 
+a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 ol,
 ul {
   list-style-position: outside;
