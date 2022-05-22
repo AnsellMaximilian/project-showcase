@@ -8,6 +8,12 @@
   --text-light: rgb(231, 231, 231);
 }
 
+ol,
+ul {
+  list-style-position: outside;
+  padding-left: 1em;
+}
+
 body {
   line-height: 1.5;
 }
@@ -75,7 +81,10 @@ section {
 
 #ingredients ul {
   list-style-type: disc;
-  list-style-position: inside;
+}
+
+#instructions ol {
+  list-style-type: decimal;
 }
 
 /* MEDIUM SCREEN  */
