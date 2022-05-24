@@ -102,6 +102,12 @@ section {
   justify-content: center;
 }
 
+.step-detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* MEDIUM SCREEN  */
 @media (min-width: 768px) {
 }
