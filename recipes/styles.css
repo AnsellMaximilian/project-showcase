@@ -44,6 +44,7 @@ section h2 {
 
 #preview-img {
   max-width: 100%;
+  object-fit: cover;
 }
 
 #tags,
@@ -114,4 +115,21 @@ section {
 
 /* MEDIUM SCREEN  */
 @media (min-width: 768px) {
+  #tags {
+    margin-bottom: 2rem;
+  }
+
+  #main__bottom {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  #preview-img {
+    width: 32rem;
+  }
+
+  #summary {
+    margin-bottom: 0;
+  }
 }
