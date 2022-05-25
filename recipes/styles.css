@@ -113,6 +113,20 @@ section {
   justify-content: center;
 }
 
+#ingredients ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#ingredients ul li::before {
+  content: "";
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--primary);
+}
+
 /* MEDIUM SCREEN  */
 @media (min-width: 768px) {
   #tags {
