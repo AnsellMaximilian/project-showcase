@@ -125,11 +125,15 @@ section {
     gap: 1rem;
   }
 
-  #preview-img {
-    width: 32rem;
+  #main__bottom > div {
+    flex: 1;
   }
 
   #summary {
     margin-bottom: 0;
   }
+
+  /* #meta {
+    justify-content: start;
+  } */
 }
