@@ -1,55 +1,68 @@
-// const title = document.getElementById("title");
+const title = document.querySelector("h1");
 
-// // Preview Section
-// const previewSection = document.getElementById("preview");
-// const previewImage = previewSection.querySelector("img");
-// const previewDescription = previewSection.querySelector("h2");
-// const previewSummary = previewSection.querySelector("p");
+const previewImage = document.querySelector("#preview-img");
+const previewSummary = document.querySelector("#summary");
 
-// // Ingredients Section
-// const ingredientsSection = document.getElementById("ingredients");
-// const ingredientList = ingredientsSection.querySelector("ul");
+const ingredientList = document.querySelector("#ingredients ul");
 
-// // Steps Section
-// const stepsSection = document.getElementById("steps");
-// const stepsListContainer = stepsSection.querySelector("#steps-list-container");
+const instructionsList = document.querySelector("#instructions ol");
 
-// const getRecipe = async () => {
-//   try {
-//     const {
-//       data: {
-//         recipes: [recipe],
-//       },
-//     } = await axios.get(
-//       "https://api.spoonacular.com/recipes/random?apiKey=1fbea3a03746450ba412eafa8dd62ab6"
-//     );
+const getRecipe = async () => {
+  try {
+    const {
+      data: {
+        recipes: [recipe],
+      },
+    } = await axios.get(
+      "https://api.spoonacular.com/recipes/random?apiKey=1fbea3a03746450ba412eafa8dd62ab6"
+    );
 
-//     return recipe;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+    return recipe;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-// const displayRandomRecipe = async () => {
-//   const {
-//     image,
-//     instructions,
-//     extendedIngredients,
-//     title: recipeTitle,
-//     summary,
-//   } = await getRecipe();
-//   title.innerText = recipeTitle;
-//   previewImage.src = image;
-//   previewImage.alt = recipeTitle;
-//   // previewDescription.innerText = "Finished - " + recipeTitle;
-//   previewSummary.innerHTML = summary;
-//   stepsListContainer.innerHTML = instructions;
-//   extendedIngredients.forEach((ingredient) => {
-//     const { name, amount, unit } = ingredient;
-//     const ingredientListItem = document.createElement("li");
-//     ingredientListItem.innerText = name + " (" + amount + " " + unit + ")";
-//     ingredientList.appendChild(ingredientListItem);
-//   });
-// };
+const displayRandomRecipe = async () => {
+  const {
+    image,
+    instructions,
+    extendedIngredients,
+    title: recipeTitle,
+    analyzedInstructions,
+    summary,
+  } = await getRecipe();
+  title.textContent = recipeTitle;
+  previewImage.src = image;
+  previewImage.alt = recipeTitle;
+  previewSummary.innerHTML = summary;
 
-// displayRandomRecipe();
+  analyzedInstructions[0].steps.forEach((instruction) => {
+    const { number, step } = instruction;
+    const instructionListItem = document.createElement("li");
+    const instructionListStep = document.createElement("span");
+    instructionListStep.classList.add("step-number");
+    instructionListStep.textContent = number;
+
+    const instructionListDetail = document.createElement("span");
+    instructionListDetail.classList.add("step-detail");
+    instructionListDetail.textContent = step;
+
+    instructionListItem.appendChild(instructionListStep);
+    instructionListItem.appendChild(instructionListDetail);
+
+    instructionsList.appendChild(instructionListItem);
+  });
+
+  extendedIngredients.forEach((ingredient) => {
+    const { name, amount, unit } = ingredient;
+    const ingredientListItem = document.createElement("li");
+
+    ingredientListItem.innerText = `${amount}${
+      unit ? ` ${unit} of ` : ""
+    } ${name}`;
+    ingredientList.appendChild(ingredientListItem);
+  });
+};
+
+displayRandomRecipe();
