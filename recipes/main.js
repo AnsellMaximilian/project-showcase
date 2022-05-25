@@ -7,6 +7,8 @@ const ingredientList = document.querySelector("#ingredients ul");
 
 const instructionsList = document.querySelector("#instructions ol");
 
+const meta = document.querySelector("#meta");
+
 const getRecipe = async () => {
   try {
     const {
@@ -26,16 +28,25 @@ const getRecipe = async () => {
 const displayRandomRecipe = async () => {
   const {
     image,
-    instructions,
     extendedIngredients,
     title: recipeTitle,
     analyzedInstructions,
     summary,
+    readyInMinutes,
+    servings,
   } = await getRecipe();
   title.textContent = recipeTitle;
   previewImage.src = image;
   previewImage.alt = recipeTitle;
   previewSummary.innerHTML = summary;
+
+  const servingsBadge = document.createElement("span");
+  servingsBadge.textContent = servings + " servings";
+  meta.appendChild(servingsBadge);
+
+  const readyBadge = document.createElement("span");
+  readyBadge.textContent = readyInMinutes + " minutes";
+  meta.appendChild(readyBadge);
 
   analyzedInstructions[0].steps.forEach((instruction) => {
     const { number, step } = instruction;
