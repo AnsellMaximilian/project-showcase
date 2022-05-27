@@ -154,4 +154,12 @@ section {
     margin: 0 auto 0.5rem;
     display: block;
   }
+
+  #meta span {
+    font-size: 0.75rem;
+    width: 4rem;
+    height: 4rem;
+    padding: 1.25rem;
+    line-height: 1;
+  }
 }
