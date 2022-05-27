@@ -147,7 +147,8 @@ section {
     margin-bottom: 0;
   }
 
-  /* #meta {
-    justify-content: start;
-  } */
+  #preview-img {
+    margin: 0 auto 0.5rem;
+    display: block;
+  }
 }
