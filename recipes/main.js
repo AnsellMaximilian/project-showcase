@@ -8,6 +8,7 @@ const ingredientList = document.querySelector("#ingredients ul");
 const instructionsList = document.querySelector("#instructions ol");
 
 const meta = document.querySelector("#meta");
+const tags = document.querySelector("#tags");
 
 const getRecipe = async () => {
   try {
@@ -18,11 +19,17 @@ const getRecipe = async () => {
     } = await axios.get(
       "https://api.spoonacular.com/recipes/random?apiKey=1fbea3a03746450ba412eafa8dd62ab6"
     );
-
+    console.log(recipe);
     return recipe;
   } catch (error) {
     console.log(error);
   }
+};
+
+const span = (label) => {
+  const el = document.createElement("span");
+  el.textContent = label;
+  return el;
 };
 
 const displayRandomRecipe = async () => {
@@ -34,6 +41,11 @@ const displayRandomRecipe = async () => {
     summary,
     readyInMinutes,
     servings,
+    vegetarian,
+    glutenFree,
+    vegan,
+    dairyFree,
+    cheap,
   } = await getRecipe();
   title.textContent = recipeTitle;
   previewImage.src = image;
@@ -47,6 +59,13 @@ const displayRandomRecipe = async () => {
   const readyBadge = document.createElement("span");
   readyBadge.textContent = readyInMinutes + " minutes";
   meta.appendChild(readyBadge);
+
+  // Tags
+  if (cheap) tags.appendChild(span("Cheap"));
+  if (vegan) tags.appendChild(span("Vegan"));
+  if (vegetarian) tags.appendChild(span("Vegetarian"));
+  if (glutenFree) tags.appendChild(span("Gluten Free"));
+  if (dairyFree) tags.appendChild(span("Dairy Free"));
 
   analyzedInstructions[0].steps.forEach((instruction) => {
     const { number, step } = instruction;
