@@ -40,6 +40,8 @@ section h2 {
 
 #container {
   padding: 0 1rem;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 #preview-img {
