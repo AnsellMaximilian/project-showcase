@@ -1,6 +1,7 @@
 :root {
   font-family: Arial, Helvetica, sans-serif;
   --primary: rgb(28, 138, 28);
+  --primary-dark: rgb(16, 109, 16);
   --secondary: rgb(175, 255, 106);
   --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tertiary: rgb(241, 255, 193);
@@ -129,6 +130,23 @@ section {
   width: 0.5rem;
   height: 0.5rem;
   background-color: var(--primary);
+}
+
+#random-btn {
+  background-color: var(--primary);
+  border: none;
+  padding: 1rem;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#random-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+#random-btn svg {
+  width: 2rem;
 }
 
 /* MEDIUM SCREEN  */
