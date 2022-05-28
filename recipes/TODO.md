@@ -1,1 +1,3 @@
 - [x] Fill in tags
+- [ ] Place random button
+- [ ] Fix reset function so tags and badges don't stack
