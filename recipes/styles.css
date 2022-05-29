@@ -135,7 +135,7 @@ section {
 #random-btn {
   background-color: var(--primary);
   border: none;
-  padding: 1rem;
+  padding: 0.75rem;
   border-radius: 100%;
   cursor: pointer;
   transition: all 0.2s;
@@ -149,7 +149,7 @@ section {
 }
 
 #random-btn svg {
-  width: 2rem;
+  width: 1.5rem;
 }
 
 /* MEDIUM SCREEN  */
@@ -183,5 +183,13 @@ section {
     height: 4rem;
     padding: 1.25rem;
     line-height: 1;
+  }
+
+  #random-btn {
+    padding: 1rem;
+  }
+
+  #random-btn svg {
+    width: 2rem;
   }
 }
