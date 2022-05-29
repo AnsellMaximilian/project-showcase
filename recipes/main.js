@@ -52,6 +52,10 @@ const displayRandomRecipe = async () => {
   previewImage.alt = recipeTitle;
   previewSummary.innerHTML = summary;
 
+  // reset
+  meta.innerHTML = "";
+  tags.innerHTML = "";
+
   const servingsBadge = document.createElement("span");
   servingsBadge.textContent = servings + " servings";
   meta.appendChild(servingsBadge);
