@@ -152,6 +152,11 @@ section {
   width: 1.5rem;
 }
 
+#loader svg {
+  stroke: var(--primary);
+  width: 3rem;
+}
+
 /* MEDIUM SCREEN  */
 @media (min-width: 768px) {
   #tags {
