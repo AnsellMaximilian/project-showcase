@@ -166,6 +166,7 @@ section {
 #loader svg {
   stroke: var(--primary);
   width: 3rem;
+  animation: spin 1s linear infinite;
 }
 
 main {
@@ -211,5 +212,15 @@ main {
 
   #random-btn svg {
     width: 2rem;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
