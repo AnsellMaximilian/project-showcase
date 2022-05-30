@@ -152,9 +152,24 @@ section {
   width: 1.5rem;
 }
 
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #loader svg {
   stroke: var(--primary);
   width: 3rem;
+}
+
+main {
+  display: none;
 }
 
 /* MEDIUM SCREEN  */
