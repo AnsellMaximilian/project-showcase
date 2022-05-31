@@ -47,72 +47,76 @@ const finishLoad = () => {
 };
 
 const displayRandomRecipe = async () => {
-  load();
-  const {
-    image,
-    extendedIngredients,
-    title: recipeTitle,
-    analyzedInstructions,
-    summary,
-    readyInMinutes,
-    servings,
-    vegetarian,
-    glutenFree,
-    vegan,
-    dairyFree,
-    cheap,
-  } = await getRecipe();
-  title.textContent = recipeTitle;
-  previewImage.src = image;
-  previewImage.alt = recipeTitle;
-  previewSummary.innerHTML = summary;
+  try {
+    load();
+    const {
+      image,
+      extendedIngredients,
+      title: recipeTitle,
+      analyzedInstructions,
+      summary,
+      readyInMinutes,
+      servings,
+      vegetarian,
+      glutenFree,
+      vegan,
+      dairyFree,
+      cheap,
+    } = await getRecipe();
+    title.textContent = recipeTitle;
+    previewImage.src = image;
+    previewImage.alt = recipeTitle;
+    previewSummary.innerHTML = summary;
 
-  // reset
-  meta.innerHTML = "";
-  tags.innerHTML = "";
+    // reset
+    meta.innerHTML = "";
+    tags.innerHTML = "";
 
-  const servingsBadge = document.createElement("span");
-  servingsBadge.textContent = servings + " servings";
-  meta.appendChild(servingsBadge);
+    const servingsBadge = document.createElement("span");
+    servingsBadge.textContent = servings + " servings";
+    meta.appendChild(servingsBadge);
 
-  const readyBadge = document.createElement("span");
-  readyBadge.textContent = readyInMinutes + " minutes";
-  meta.appendChild(readyBadge);
+    const readyBadge = document.createElement("span");
+    readyBadge.textContent = readyInMinutes + " minutes";
+    meta.appendChild(readyBadge);
 
-  // Tags
-  if (cheap) tags.appendChild(span("Cheap"));
-  if (vegan) tags.appendChild(span("Vegan"));
-  if (vegetarian) tags.appendChild(span("Vegetarian"));
-  if (glutenFree) tags.appendChild(span("Gluten Free"));
-  if (dairyFree) tags.appendChild(span("Dairy Free"));
+    // Tags
+    if (cheap) tags.appendChild(span("Cheap"));
+    if (vegan) tags.appendChild(span("Vegan"));
+    if (vegetarian) tags.appendChild(span("Vegetarian"));
+    if (glutenFree) tags.appendChild(span("Gluten Free"));
+    if (dairyFree) tags.appendChild(span("Dairy Free"));
 
-  analyzedInstructions[0].steps.forEach((instruction) => {
-    const { number, step } = instruction;
-    const instructionListItem = document.createElement("li");
-    const instructionListStep = document.createElement("span");
-    instructionListStep.classList.add("step-number");
-    instructionListStep.textContent = number;
+    analyzedInstructions[0].steps.forEach((instruction) => {
+      const { number, step } = instruction;
+      const instructionListItem = document.createElement("li");
+      const instructionListStep = document.createElement("span");
+      instructionListStep.classList.add("step-number");
+      instructionListStep.textContent = number;
 
-    const instructionListDetail = document.createElement("span");
-    instructionListDetail.classList.add("step-detail");
-    instructionListDetail.textContent = step;
+      const instructionListDetail = document.createElement("span");
+      instructionListDetail.classList.add("step-detail");
+      instructionListDetail.textContent = step;
 
-    instructionListItem.appendChild(instructionListStep);
-    instructionListItem.appendChild(instructionListDetail);
+      instructionListItem.appendChild(instructionListStep);
+      instructionListItem.appendChild(instructionListDetail);
 
-    instructionsList.appendChild(instructionListItem);
-  });
+      instructionsList.appendChild(instructionListItem);
+    });
 
-  extendedIngredients.forEach((ingredient) => {
-    const { name, amount, unit } = ingredient;
-    const ingredientListItem = document.createElement("li");
+    extendedIngredients.forEach((ingredient) => {
+      const { name, amount, unit } = ingredient;
+      const ingredientListItem = document.createElement("li");
 
-    ingredientListItem.innerText = `${amount}${
-      unit ? ` ${unit} of ` : ""
-    } ${name}`;
-    ingredientList.appendChild(ingredientListItem);
-  });
-  finishLoad();
+      ingredientListItem.innerText = `${amount}${
+        unit ? ` ${unit} of ` : ""
+      } ${name}`;
+      ingredientList.appendChild(ingredientListItem);
+    });
+    finishLoad();
+  } catch (error) {
+    displayRandomRecipe();
+  }
 };
 
 displayRandomRecipe();
