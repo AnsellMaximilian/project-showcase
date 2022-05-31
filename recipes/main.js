@@ -1,3 +1,5 @@
+const container = document.querySelector("#container");
+
 const title = document.querySelector("h1");
 
 const previewImage = document.querySelector("#preview-img");
@@ -6,6 +8,8 @@ const previewSummary = document.querySelector("#summary");
 const ingredientList = document.querySelector("#ingredients ul");
 
 const instructionsList = document.querySelector("#instructions ol");
+
+const loader = document.querySelector("#loader");
 
 const meta = document.querySelector("#meta");
 const tags = document.querySelector("#tags");
@@ -30,6 +34,11 @@ const span = (label) => {
   const el = document.createElement("span");
   el.textContent = label;
   return el;
+};
+
+const load = () => {
+  container.style.display = "none";
+  loader.style.display = "flex";
 };
 
 const displayRandomRecipe = async () => {
