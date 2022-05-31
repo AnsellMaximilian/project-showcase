@@ -47,6 +47,7 @@ const finishLoad = () => {
 };
 
 const displayRandomRecipe = async () => {
+  load();
   const {
     image,
     extendedIngredients,
@@ -111,6 +112,7 @@ const displayRandomRecipe = async () => {
     } ${name}`;
     ingredientList.appendChild(ingredientListItem);
   });
+  finishLoad();
 };
 
 displayRandomRecipe();
