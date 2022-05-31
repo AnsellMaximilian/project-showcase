@@ -41,6 +41,11 @@ const load = () => {
   loader.style.display = "flex";
 };
 
+const finishLoad = () => {
+  container.style.display = "block";
+  loader.style.display = "none";
+};
+
 const displayRandomRecipe = async () => {
   const {
     image,
