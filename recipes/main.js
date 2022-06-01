@@ -86,21 +86,24 @@ const displayRandomRecipe = async () => {
     if (glutenFree) tags.appendChild(span("Gluten Free"));
     if (dairyFree) tags.appendChild(span("Dairy Free"));
 
-    analyzedInstructions[0].steps.forEach((instruction) => {
-      const { number, step } = instruction;
-      const instructionListItem = document.createElement("li");
-      const instructionListStep = document.createElement("span");
-      instructionListStep.classList.add("step-number");
-      instructionListStep.textContent = number;
+    let stepNumber = 1;
+    analyzedInstructions.forEach((instruction) => {
+      instruction.steps.forEach((step) => {
+        const instructionListItem = document.createElement("li");
+        const instructionListStep = document.createElement("span");
+        instructionListStep.classList.add("step-number");
+        instructionListStep.textContent = stepNumber;
 
-      const instructionListDetail = document.createElement("span");
-      instructionListDetail.classList.add("step-detail");
-      instructionListDetail.textContent = step;
+        const instructionListDetail = document.createElement("span");
+        instructionListDetail.classList.add("step-detail");
+        instructionListDetail.textContent = step.step;
 
-      instructionListItem.appendChild(instructionListStep);
-      instructionListItem.appendChild(instructionListDetail);
+        instructionListItem.appendChild(instructionListStep);
+        instructionListItem.appendChild(instructionListDetail);
 
-      instructionsList.appendChild(instructionListItem);
+        instructionsList.appendChild(instructionListItem);
+        stepNumber++;
+      });
     });
 
     extendedIngredients.forEach((ingredient) => {
