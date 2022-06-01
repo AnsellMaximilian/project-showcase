@@ -14,6 +14,8 @@ const loader = document.querySelector("#loader");
 const meta = document.querySelector("#meta");
 const tags = document.querySelector("#tags");
 
+previewImage.addEventListener("load", (e) => finishLoad());
+
 const getRecipe = async () => {
   try {
     const {
@@ -115,7 +117,6 @@ const displayRandomRecipe = async () => {
       } ${name}`;
       ingredientList.appendChild(ingredientListItem);
     });
-    finishLoad();
   } catch (error) {
     displayRandomRecipe();
   }
