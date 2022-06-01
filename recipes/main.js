@@ -68,10 +68,12 @@ const displayRandomRecipe = async () => {
     previewImage.src = image;
     previewImage.alt = recipeTitle;
     previewSummary.innerHTML = summary;
+    let stepNumber = 1;
 
     // reset
     meta.innerHTML = "";
     tags.innerHTML = "";
+    instructionsList.innerHTML = "";
 
     const servingsBadge = document.createElement("span");
     servingsBadge.textContent = servings + " servings";
@@ -88,13 +90,14 @@ const displayRandomRecipe = async () => {
     if (glutenFree) tags.appendChild(span("Gluten Free"));
     if (dairyFree) tags.appendChild(span("Dairy Free"));
 
-    let stepNumber = 1;
+    console.log(analyzedInstructions);
     analyzedInstructions.forEach((instruction) => {
       instruction.steps.forEach((step) => {
         const instructionListItem = document.createElement("li");
         const instructionListStep = document.createElement("span");
         instructionListStep.classList.add("step-number");
-        instructionListStep.textContent = stepNumber;
+        console.log(stepNumber);
+        instructionListStep.textContent = stepNumber++;
 
         const instructionListDetail = document.createElement("span");
         instructionListDetail.classList.add("step-detail");
@@ -104,7 +107,6 @@ const displayRandomRecipe = async () => {
         instructionListItem.appendChild(instructionListDetail);
 
         instructionsList.appendChild(instructionListItem);
-        stepNumber++;
       });
     });
 
