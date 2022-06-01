@@ -2,4 +2,4 @@
 - [x] Place random button
 - [x] Fix reset function so tags and badges don't stack
 - [ ] Fix moving elements after image loads
-- [ ] Fix recipe steps number issue
+- [x] Fix recipe steps number issue
