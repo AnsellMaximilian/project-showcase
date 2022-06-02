@@ -74,6 +74,7 @@ const displayRandomRecipe = async () => {
     meta.innerHTML = "";
     tags.innerHTML = "";
     instructionsList.innerHTML = "";
+    ingredientList.innerHTML = "";
 
     const servingsBadge = document.createElement("span");
     servingsBadge.textContent = servings + " servings";
