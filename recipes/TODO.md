@@ -3,4 +3,4 @@
 - [x] Fix reset function so tags and badges don't stack
 - [x] Fix moving elements after image loads
 - [x] Fix recipe steps number issue
-- [ ] Fix reset for ingredients
+- [x] Fix reset for ingredients
