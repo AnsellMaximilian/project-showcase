@@ -91,13 +91,11 @@ const displayRandomRecipe = async () => {
     if (glutenFree) tags.appendChild(span("Gluten Free"));
     if (dairyFree) tags.appendChild(span("Dairy Free"));
 
-    console.log(analyzedInstructions);
     analyzedInstructions.forEach((instruction) => {
       instruction.steps.forEach((step) => {
         const instructionListItem = document.createElement("li");
         const instructionListStep = document.createElement("span");
         instructionListStep.classList.add("step-number");
-        console.log(stepNumber);
         instructionListStep.textContent = stepNumber++;
 
         const instructionListDetail = document.createElement("span");
