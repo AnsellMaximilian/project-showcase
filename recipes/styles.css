@@ -179,6 +179,17 @@ main {
   color: var(--text-light);
   text-align: center;
   padding: 1rem;
+  position: relative;
+}
+
+#banner button {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
 }
 
 #banner h3 {
