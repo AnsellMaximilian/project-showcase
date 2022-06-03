@@ -14,7 +14,12 @@ const loader = document.querySelector("#loader");
 const meta = document.querySelector("#meta");
 const tags = document.querySelector("#tags");
 
+const banner = document.querySelector("#banner");
+const closeBannerBtn = document.querySelector("#banner button");
+
 previewImage.addEventListener("load", (e) => finishLoad());
+
+closeBannerBtn.addEventListener("click", () => (banner.style.display = "none"));
 
 const getRecipe = async () => {
   try {
