@@ -4,3 +4,4 @@
 - [x] Fix moving elements after image loads
 - [x] Fix recipe steps number issue
 - [x] Fix reset for ingredients
+- [ ] Separate button from tooltip
