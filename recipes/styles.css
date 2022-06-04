@@ -193,6 +193,10 @@ main {
   cursor: pointer;
 }
 
+#banner button:hover {
+  color: rgb(238, 238, 238);
+}
+
 #banner h3 {
   font-size: 2rem;
   margin-bottom: 1rem;
