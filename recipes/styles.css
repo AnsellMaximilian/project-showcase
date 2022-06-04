@@ -190,6 +190,7 @@ main {
   color: white;
   border: none;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 #banner h3 {
