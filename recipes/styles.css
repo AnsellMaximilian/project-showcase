@@ -218,6 +218,21 @@ main {
   color: var(--primary-light);
 }
 
+#random-btn-container::before {
+  content: "Click this button to generate another random recipe.";
+  background-color: var(--primary);
+  color: var(--text-light);
+  position: absolute;
+  padding: 0.5rem;
+  width: 12rem;
+  border-radius: 0.5rem;
+  top: 50%;
+  right: calc(100% + 1rem);
+  transform: translateY(-50%);
+  box-shadow: var(--shadow);
+  font-size: 0.9rem;
+}
+
 /* MEDIUM SCREEN  */
 @media (min-width: 768px) {
   #tags {
@@ -255,25 +270,11 @@ main {
     padding: 1rem;
   }
 
-  #random-btn::before {
-    content: "Click this button to generate another random recipe.";
-    background-color: var(--primary);
-    color: var(--text-light);
-    position: absolute;
-    padding: 0.5rem;
-    width: 10rem;
-    border-radius: 0.5rem;
-    top: 0;
-    right: 0;
-    transform: translateY(calc(-100% - 1rem));
-    box-shadow: var(--shadow);
-  }
-
   #random-btn svg {
     width: 2rem;
   }
 
-  #random-btn::before {
+  #random-btn-container::before {
     top: 50%;
     right: 0;
     transform: translate(-50%, -50%);
