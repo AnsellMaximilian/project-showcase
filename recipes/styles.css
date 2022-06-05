@@ -273,12 +273,6 @@ main {
   #random-btn svg {
     width: 2rem;
   }
-
-  #random-btn-container::before {
-    top: 50%;
-    right: 0;
-    transform: translate(-50%, -50%);
-  }
 }
 
 @keyframes spin {
