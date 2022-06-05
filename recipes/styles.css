@@ -133,6 +133,12 @@ section {
   background-color: var(--primary);
 }
 
+#random-btn-container {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
 #random-btn {
   background-color: var(--primary);
   border: none;
@@ -140,9 +146,6 @@ section {
   border-radius: 100%;
   cursor: pointer;
   transition: all 0.2s;
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
 }
 
 #random-btn:hover {
