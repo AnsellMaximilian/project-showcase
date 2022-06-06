@@ -6,3 +6,4 @@
 - [x] Fix reset for ingredients
 - [x] Separate button from tooltip
 - [x] Fade out random button tooltip
+- [ ] Add click listener for random button to prematurely remove tooltip
