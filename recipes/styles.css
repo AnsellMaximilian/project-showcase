@@ -231,6 +231,7 @@ main {
   transform: translateY(-50%);
   box-shadow: var(--shadow);
   font-size: 0.9rem;
+  animation: fade-out 500ms linear 1s 1 forwards;
 }
 
 /* MEDIUM SCREEN  */
