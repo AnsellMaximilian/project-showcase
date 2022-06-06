@@ -284,3 +284,10 @@ main {
     transform: rotate(360deg);
   }
 }
+
+@keyframes fade-out {
+  to {
+    display: none;
+    opacity: 0;
+  }
+}
