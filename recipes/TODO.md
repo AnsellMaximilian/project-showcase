@@ -5,3 +5,4 @@
 - [x] Fix recipe steps number issue
 - [x] Fix reset for ingredients
 - [x] Separate button from tooltip
+- [ ] Fade out random button tooltip
