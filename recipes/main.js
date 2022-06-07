@@ -3,6 +3,7 @@ const container = document.querySelector("#container");
 const title = document.querySelector("h1");
 
 const randomBtn = document.querySelector("#random-btn");
+const randomBtnTooltip = document.querySelector("#random-btn-tooltip");
 
 const previewImage = document.querySelector("#preview-img");
 const previewSummary = document.querySelector("#summary");
@@ -19,7 +20,7 @@ const tags = document.querySelector("#tags");
 const banner = document.querySelector("#banner");
 const closeBannerBtn = document.querySelector("#banner button");
 
-// randomBtn.addEventListener('click', () => )
+randomBtn.addEventListener("click", () => randomBtnTooltip.remove());
 
 previewImage.addEventListener("load", (e) => finishLoad());
 
