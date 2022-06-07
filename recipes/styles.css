@@ -234,6 +234,10 @@ main {
   animation: fade-out 500ms linear 5s 1 forwards;
 }
 
+.fade-out--quick {
+  animation: fade-out 500ms linear 1 forwards;
+}
+
 /* MEDIUM SCREEN  */
 @media (min-width: 768px) {
   #tags {
