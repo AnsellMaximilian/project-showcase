@@ -218,8 +218,8 @@ main {
   color: var(--primary-light);
 }
 
-#random-btn-container::before {
-  content: "Click this button to generate another random recipe.";
+#random-btn-tooltip {
+  display: block;
   background-color: var(--primary);
   color: var(--text-light);
   position: absolute;

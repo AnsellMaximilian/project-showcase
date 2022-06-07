@@ -2,6 +2,8 @@ const container = document.querySelector("#container");
 
 const title = document.querySelector("h1");
 
+const randomBtn = document.querySelector("#random-btn");
+
 const previewImage = document.querySelector("#preview-img");
 const previewSummary = document.querySelector("#summary");
 
@@ -16,6 +18,8 @@ const tags = document.querySelector("#tags");
 
 const banner = document.querySelector("#banner");
 const closeBannerBtn = document.querySelector("#banner button");
+
+// randomBtn.addEventListener('click', () => )
 
 previewImage.addEventListener("load", (e) => finishLoad());
 
