@@ -37,7 +37,7 @@ const getRecipe = async () => {
     );
     return recipe;
   } catch (error) {
-    console.log(error);
+    return false;
   }
 };
 
@@ -61,6 +61,7 @@ const displayRandomRecipe = async () => {
   try {
     load();
     const recipe = await getRecipe();
+    if (!recipe) return displayRandomRecipe();
     const {
       image,
       extendedIngredients,
