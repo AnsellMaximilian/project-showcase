@@ -60,6 +60,7 @@ const finishLoad = () => {
 const displayRandomRecipe = async () => {
   try {
     load();
+    const recipe = await getRecipe();
     const {
       image,
       extendedIngredients,
@@ -73,7 +74,7 @@ const displayRandomRecipe = async () => {
       vegan,
       dairyFree,
       cheap,
-    } = await getRecipe();
+    } = recipe;
     title.textContent = recipeTitle;
     previewImage.src = image;
     previewImage.alt = recipeTitle;
